@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+.env
+# runtime cache dir (not draft_analyst/data/ which is source code)
+/data/
+*.egg-info/
+dist/
+.venv/
+.pytest_cache/
+.DS_Store
