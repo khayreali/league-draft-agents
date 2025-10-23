@@ -16,3 +16,14 @@ class DraftState(BaseModel):
     bans: list[str] = []
     user_role: str  # top, jungle, mid, bot, support
     rank: str = "emerald+"
+
+
+class MatchData(BaseModel):
+    match_id: str
+    patch: str
+    region: str
+    is_pro: bool
+    winning_team: list[str]
+    losing_team: list[str]
+    duration_seconds: int
+    timestamp: int
