@@ -27,3 +27,9 @@ class MatchData(BaseModel):
     losing_team: list[str]
     duration_seconds: int
     timestamp: int
+
+
+class PatchNote(BaseModel):
+    patch: str
+    content: str
+    champions_mentioned: list[str] = []
