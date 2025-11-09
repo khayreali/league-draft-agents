@@ -33,3 +33,17 @@ class PatchNote(BaseModel):
     patch: str
     content: str
     champions_mentioned: list[str] = []
+
+
+class Recommendation(BaseModel):
+    champion: str
+    score: float
+    reasoning: str
+    sources: list[str] = []  # which agent(s) contributed
+
+
+class AgentOutput(BaseModel):
+    agent_name: str
+    recommendations: list[Recommendation] = []
+    raw_reasoning: str = ""
+    tool_calls_made: int = 0
