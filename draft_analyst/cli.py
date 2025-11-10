@@ -46,3 +46,65 @@ async def _ingest(
         typer.echo(f"patch notes: {summary['patches_with_notes']}")
     finally:
         await riot.close()
+
+
+@app.command()
+def recommend(
+    role: str = typer.Option(..., help="Your role: top, jungle, mid, bot, support"),
+    patch: str = typer.Option(..., help="Current patch, e.g. 16.7"),
+    picks: str = typer.Option("", help="Your team's picks, comma-separated"),
+    bans: str = typer.Option("", help="All bans, comma-separated"),
+    enemy: str = typer.Option("", help="Enemy picks, comma-separated"),
+    rank: str = typer.Option("emerald+", help="Rank filter for solo queue stats"),
+    baseline: bool = typer.Option(False, help="Run single-agent baseline instead"),
+):
+    """Get draft recommendations for the given state."""
+    logging.basicConfig(level=logging.INFO)
+    from rich.console import Console
+    from rich.table import Table
+
+    from draft_analyst.agents.context import build_tool_executor
+    from draft_analyst.domain.models import DraftState
+    from draft_analyst.llm_client import get_llm_client
+    from draft_analyst.config import DEFAULT_AGENT_MODEL
+
+    pick_list = [p.strip() for p in picks.split(",") if p.strip()]
+    ban_list = [b.strip() for b in bans.split(",") if b.strip()]
+    enemy_list = [e.strip() for e in enemy.split(",") if e.strip()]
+
+    state = DraftState(
+        patch=patch,
+        user_team_picks=pick_list,
+        enemy_team_picks=enemy_list,
+        bans=ban_list,
+        user_role=role,
+        rank=rank,
+    )
+
+    tool_executor = build_tool_executor(patch)
+    llm = get_llm_client()
+
+    if baseline:
+        from draft_analyst.agents.baseline import SingleAgentBaseline
+        agent = SingleAgentBaseline(llm, DEFAULT_AGENT_MODEL, tool_executor)
+        typer.echo("running single-agent baseline...")
+    else:
+        from draft_analyst.agents.baseline import SingleAgentBaseline
+        agent = SingleAgentBaseline(llm, DEFAULT_AGENT_MODEL, tool_executor)
+        typer.echo("running single-agent baseline (multi-agent not implemented yet)...")
+
+    output = agent.run(state)
+
+    # print results
+    console = Console()
+    table = Table(title=f"Draft Recommendations ({output.agent_name})")
+    table.add_column("Rank", style="bold")
+    table.add_column("Champion", style="cyan")
+    table.add_column("Score", justify="right")
+    table.add_column("Reasoning")
+
+    for i, rec in enumerate(output.recommendations[:5], 1):
+        table.add_row(str(i), rec.champion, f"{rec.score:.2f}", rec.reasoning)
+
+    console.print(table)
+    typer.echo(f"\ntool calls: {output.tool_calls_made}")
