@@ -50,10 +50,11 @@ class LangGraphCoordinator:
         builder.add_node("patch_context", self._run_patch_context)
         builder.add_node("head_coach", self._run_head_coach)
 
-        # fan out from START to all three specialists
-        builder.add_edge(START, "stats")
-        builder.add_edge(START, "pro_meta")
-        builder.add_edge(START, "patch_context")
+        # fan out: run all three specialists in parallel from START
+        builder.add_conditional_edges(
+            START,
+            lambda _: ["stats", "pro_meta", "patch_context"],
+        )
 
         # fan in: all specialists feed into head_coach
         builder.add_edge("stats", "head_coach")

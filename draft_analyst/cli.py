@@ -89,9 +89,9 @@ def recommend(
         agent = SingleAgentBaseline(llm, DEFAULT_AGENT_MODEL, tool_executor)
         typer.echo("running single-agent baseline...")
     else:
-        from draft_analyst.agents.baseline import SingleAgentBaseline
-        agent = SingleAgentBaseline(llm, DEFAULT_AGENT_MODEL, tool_executor)
-        typer.echo("running single-agent baseline (multi-agent not implemented yet)...")
+        from draft_analyst.agents.coordinator import LangGraphCoordinator
+        agent = LangGraphCoordinator(llm, DEFAULT_AGENT_MODEL, tool_executor)
+        typer.echo("running multi-agent system...")
 
     output = agent.run(state)
 
