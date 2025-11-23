@@ -7,6 +7,8 @@ from draft_analyst.analytics.pro_meta import ProMetaAnalyzer
 from draft_analyst.analytics.synergy import SynergyCalculator
 from draft_analyst.agents.tools import ToolExecutor
 from draft_analyst.data.match_store import MatchStore
+from draft_analyst.data.patch_index import PatchIndex
+from draft_analyst.data.patch_scraper import PatchNotesScraper
 
 log = logging.getLogger(__name__)
 
@@ -35,8 +37,44 @@ def build_tool_executor(patch: str | None = None) -> ToolExecutor:
     synergy_calc = SynergyCalculator(all_matches)
     counter_pick = CounterPickAnalyzer(champion_stats)
 
-    log.info(f"built tools from {len(all_matches)} matches")
-    return ToolExecutor(champion_stats, pro_meta, synergy_calc, counter_pick)
+    # load patch notes — check DB first, then try local YAML files
+    scraper = PatchNotesScraper()
+    cached_notes = scraper.get_all_cached()
+    patch_notes = {n.patch: n.content for n in cached_notes}
+
+    if not patch_notes:
+        # load directly from local YAML files as fallback
+        import asyncio
+        patches_to_try = [patch] if patch else []
+        patches_to_try += ["16.7", "16.6", "16.5"]
+        notes = asyncio.run(scraper.fetch_recent(list(set(patches_to_try))))
+        patch_notes = {n.patch: n.content for n in notes}
+
+    # try to load chroma index if it exists
+    patch_index = None
+    try:
+        idx = PatchIndex()
+        if idx.count() > 0:
+            patch_index = idx
+            log.info(f"loaded patch index with {idx.count()} chunks")
+        else:
+            # auto-index from the patch notes we have
+            all_notes = list(patch_notes.values())
+            if all_notes:
+                from draft_analyst.domain.models import PatchNote
+                note_objects = [
+                    PatchNote(patch=p, content=c, champions_mentioned=[])
+                    for p, c in patch_notes.items()
+                ]
+                n = idx.index_notes(note_objects)
+                if n > 0:
+                    patch_index = idx
+                    log.info(f"auto-indexed {n} patch note chunks")
+    except Exception as e:
+        log.warning(f"couldn't load patch index: {e}")
+
+    log.info(f"built tools from {len(all_matches)} matches, {len(patch_notes)} patch notes")
+    return ToolExecutor(champion_stats, pro_meta, synergy_calc, counter_pick, patch_notes, patch_index)
 
 
 def _generate_synthetic_matches():

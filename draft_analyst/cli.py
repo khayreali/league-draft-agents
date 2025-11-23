@@ -49,6 +49,36 @@ async def _ingest(
 
 
 @app.command()
+def index_patches():
+    """Chunk and embed patch notes into ChromaDB."""
+    logging.basicConfig(level=logging.INFO)
+    asyncio.run(_index_patches())
+
+
+async def _index_patches():
+    from draft_analyst.data.patch_index import PatchIndex
+    from draft_analyst.data.patch_scraper import PatchNotesScraper
+
+    scraper = PatchNotesScraper()
+
+    # load from DB cache first, then local files
+    notes = scraper.get_all_cached()
+    if not notes:
+        typer.echo("no cached notes, loading from local YAML files...")
+        patches = ["16.7", "16.6", "16.5"]
+        notes = await scraper.fetch_recent(patches)
+
+    if not notes:
+        typer.echo("no patch notes found to index")
+        return
+
+    typer.echo(f"indexing {len(notes)} patch notes...")
+    index = PatchIndex()
+    n = index.index_notes(notes)
+    typer.echo(f"done — {n} chunks indexed ({index.count()} total in collection)")
+
+
+@app.command()
 def recommend(
     role: str = typer.Option(..., help="Your role: top, jungle, mid, bot, support"),
     patch: str = typer.Option(..., help="Current patch, e.g. 16.7"),
