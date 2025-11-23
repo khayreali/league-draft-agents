@@ -1,0 +1,76 @@
+patch: "16.6"
+content: |
+  Patch 16.6 Notes
+
+  Champions
+
+  Ahri
+  Q base damage reduced from 80/120/160/200/240 to 75/115/155/195/235.
+  Ahri has been too safe and too effective in the mid lane meta. A small
+  poke damage reduction to give her opponents a bit more breathing room.
+
+  Ambessa
+  Q damage increased by 5 at all ranks. Passive shield value increased.
+  After shipping weak in 16.5, Ambessa needs more power in extended trades.
+
+  Caitlyn
+  Base attack speed ratio reduced from 0.681 to 0.668.
+  Caitlyn's early game poke combined with her scaling has made her the dominant
+  bot laner in pro play for three patches running.
+
+  Elise
+  Spider form W attack speed increased from 60/80/100/120% to 70/90/110/130%.
+  Elise jungle has dropped off significantly. More spider form DPS to help
+  her clear and skirmish.
+
+  Graves
+  R knockback distance reduced. Base damage unchanged.
+  Graves R has been too effective as a disengage tool in teamfights,
+  making him frustrating to play against as a melee champion.
+
+  Jinx
+  Passive attack speed on takedown increased from 25% to 30%.
+  Jinx has been solid but not exciting. A small snowball buff to reward
+  her for getting resets in teamfights.
+
+  Nautilus
+  E slow increased from 30/35/40/45/50% to 35/40/45/50/55%.
+  Nautilus support has lost ground to enchanters. More peel power to
+  justify picking a tank support.
+
+  Rumble
+  Q damage per tick increased. Overheat bonus damage increased.
+  Rumble has been mostly absent from both solo queue and pro play. These
+  buffs target his sustained damage to improve his teamfight contribution.
+
+  Twisted Fate
+  Pick a Card (W) gold card stun duration increased from 1/1.25/1.5/1.75
+  to 1.25/1.5/1.75/2 seconds.
+  TF has struggled in the current meta where mid laners need to match roams.
+  More reliable lockdown helps him enable ganks and picks.
+
+  Zac
+  Q second hit AP ratio increased from 0.3 to 0.4.
+  Small buff for AP Zac enjoyers. Tank Zac is fine.
+
+  Items
+
+  Stormsurge
+  Proc damage reduced from 100-200 to 90-180.
+  Stormsurge burst pattern on assassin mages has been overtuned.
+
+  Liandry's Torment
+  Burn damage per second increased from 1.5% max HP to 1.7% max HP.
+  DOT mages need a bit more to compete with burst mage itemization.
+
+champions_mentioned:
+  - Ahri
+  - Ambessa
+  - Caitlyn
+  - Elise
+  - Graves
+  - Jinx
+  - Nautilus
+  - Rumble
+  - Twisted Fate
+  - Zac

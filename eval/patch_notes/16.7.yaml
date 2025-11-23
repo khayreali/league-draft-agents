@@ -1,0 +1,80 @@
+patch: "16.7"
+content: |
+  Patch 16.7 Notes
+
+  Champions
+
+  Ambessa
+  Base armor reduced from 35 to 32. W cooldown increased by 2 seconds at all ranks.
+  Ambessa has been dominating top lane since her release, and we're pulling back
+  on her early laning to give melee opponents more room to trade.
+
+  Aurora
+  R cooldown reduced from 130/110/90 to 120/100/80. E AP ratio increased from 0.5 to 0.6.
+  Aurora hasn't found her footing in mid lane. We're giving her ultimate more uptime
+  and improving her burst to make her a viable pick in organized play.
+
+  Corki
+  Base AD increased from 55 to 58. Package cooldown reduced from 300 to 240 seconds.
+  Corki's been absent from pro play for a while. The extra base AD helps his laning
+  and the more frequent package should give teams more reason to draft him.
+
+  Jax
+  E cooldown increased from 14/12.5/11/9.5/8 to 15/13.5/12/10.5/9.
+  Counter Strike has been too reliable in short trades. This gives opponents a slightly
+  wider window to punish after it's used.
+
+  K'Sante
+  Q damage increased by 10 at all ranks. W max damage cap increased from 200 to 250.
+  K'Sante has been underperforming since his last round of nerfs. These are targeted
+  buffs to help him compete with other top lane tanks.
+
+  Kog'Maw
+  W attack speed bonus increased from 25/30/35/40/45% to 30/35/40/45/50%.
+  R base damage reduced from 100/150/200 to 90/140/190.
+  We want Kog'Maw to lean harder into his identity as a sustained-damage hypercarry
+  rather than relying on poke from his ultimate.
+
+  Rek'Sai
+  Q bonus AD ratio increased from 0.5 to 0.6. Passive heal per fury increased.
+  Rek'Sai has been struggling in the current jungle meta. More damage and sustain
+  should help her clear speed and early skirmishing.
+
+  Syndra
+  Q base damage reduced from 70/110/150/190/230 to 65/105/145/185/225.
+  Syndra's laning phase has been a bit too oppressive, especially in pro play
+  where she can zone effectively with sphere placement.
+
+  Varus
+  W on-hit damage increased from 7/10.5/14/17.5/21 to 9/12.5/16/19.5/23.
+  On-hit Varus has fallen behind lethality builds. This should make the sustained
+  damage playstyle more competitive.
+
+  Items
+
+  Blade of the Ruined King
+  On-hit damage reduced from 9% current HP to 8% current HP.
+  BotRK has been a must-buy first item for too many champions. This is a small
+  nerf to keep it in line.
+
+  Hollow Radiance
+  Magic damage per second increased from 12-30 to 15-33.
+  Tank AP items have been underperforming compared to pure armor/MR options.
+
+  Systems
+
+  Baron Nashor
+  Baron buff duration reduced from 3 minutes to 2.5 minutes.
+  Baron has been ending too many games on the first take. The shorter window
+  means teams have to be more decisive with the buff.
+
+champions_mentioned:
+  - Ambessa
+  - Aurora
+  - Corki
+  - Jax
+  - "K'Sante"
+  - "Kog'Maw"
+  - "Rek'Sai"
+  - Syndra
+  - Varus

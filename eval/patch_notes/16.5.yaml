@@ -1,0 +1,72 @@
+patch: "16.5"
+content: |
+  Patch 16.5 Notes
+
+  Champions
+
+  Ambessa
+  New champion release. Ambessa is a bruiser designed for top lane with
+  high mobility and sustained damage. Her kit includes a dash on Q, a
+  defensive W that grants a shield, and an ultimate that locks down an area.
+  Shipping with conservative numbers — we'd rather buff than hotfix nerf.
+
+  Azir
+  Soldier damage reduced from 60-160 to 55-150 (based on level).
+  Azir continues to warp pro play drafts around him. We're reducing his
+  sustained damage to make him less mandatory in organized play.
+
+  Draven
+  Q bonus AD ratio increased from 0.75/0.85/0.95/1.05/1.15 to
+  0.8/0.9/1.0/1.1/1.2.
+  Draven hasn't been able to snowball as reliably this season. More axe
+  damage should help him punish in lane.
+
+  Ivern
+  E shield value increased by 20 at all ranks. Daisy HP increased.
+  Ivern support has been surprisingly effective but Ivern jungle has suffered.
+  These buffs target his jungle identity specifically.
+
+  Leona
+  W bonus resistances increased from 15/20/25/30/35 to 20/25/30/35/40.
+  Leona's been outclassed by Nautilus and Rell. More tankiness to help
+  her survive the all-ins she initiates.
+
+  Maokai
+  Sapling toss (E) slow increased. Brush saplings damage unchanged.
+  Small QoL buff for Maokai support vision control.
+
+  Yone
+  Q crit scaling reduced from 60% to 55%. E bonus damage stored reduced.
+  Yone has been the most banned champion in solo queue for two patches.
+  These are meaningful nerfs to his burst pattern.
+
+  Zeri
+  Base HP increased from 500 to 530. W cooldown reduced at early ranks.
+  Zeri has been struggling after her mini-rework. More HP and more frequent
+  W casts to help her laning.
+
+  Items
+
+  Navori Flickerblade
+  Ability haste reduced from 20 to 15. Passive cooldown refund unchanged.
+  Navori has been too efficient as a generalist crit item.
+
+  Jak'Sho
+  Per-stack resistances increased from 3 to 4.
+  Tank mythics need to better compete with bruiser itemization.
+
+  Systems
+
+  Dragon Soul
+  Infernal Dragon Soul burn damage reduced from 80-160 to 70-140.
+  Infernal soul has been the most impactful soul by a significant margin.
+
+champions_mentioned:
+  - Ambessa
+  - Azir
+  - Draven
+  - Ivern
+  - Leona
+  - Maokai
+  - Yone
+  - Zeri
