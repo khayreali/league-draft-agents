@@ -47,3 +47,24 @@ class AgentOutput(BaseModel):
     recommendations: list[Recommendation] = []
     raw_reasoning: str = ""
     tool_calls_made: int = 0
+
+
+class EvalScenario(BaseModel):
+    name: str
+    description: str
+    draft_state: DraftState
+    expected_good_picks: list[str]
+    expected_bad_picks: list[str] = []
+    difficulty: str  # easy, medium, hard
+
+
+class EvalResult(BaseModel):
+    scenario_name: str
+    system_name: str
+    recommendations: list[Recommendation]
+    top_pick_quality: bool
+    top_3_recall: float
+    bad_pick_avoidance: bool
+    reasoning_quality: float | None = None
+    latency_ms: float
+    tool_call_count: int
