@@ -1,0 +1,220 @@
+scenarios:
+  # --- EASY (5) ---
+  # obvious meta picks, single clear answer
+
+  - name: meta_mid_into_squishies
+    description: Enemy is all squishy, team needs AP mid laner
+    difficulty: easy
+    draft_state:
+      patch: "16.7"
+      user_role: mid
+      user_team_picks: [Aatrox, Sejuani, Jinx, Thresh]
+      enemy_team_picks: [Gnar, Viego, Syndra, Caitlyn, Lulu]
+      bans: [Yone]
+      rank: "emerald+"
+    expected_good_picks: [Aurora, Ahri, Orianna, LeBlanc]
+    expected_bad_picks: [Azir]  # nerfed recently
+
+  - name: obvious_tank_jungle
+    description: Team is all damage, needs a tank jungler
+    difficulty: easy
+    draft_state:
+      patch: "16.7"
+      user_role: jungle
+      user_team_picks: [Camille, Ahri, Draven, Lulu]
+      enemy_team_picks: [Aatrox, Graves]
+      bans: [Yone, Viego]
+      rank: "emerald+"
+    expected_good_picks: [Sejuani, Ivern, "Jarvan IV", "Rek'Sai"]
+    expected_bad_picks: [LeeSin]  # would make team all-damage
+
+  - name: free_counter_top
+    description: Enemy locked in a weak-early top laner, free counter-pick
+    difficulty: easy
+    draft_state:
+      patch: "16.7"
+      user_role: top
+      user_team_picks: [Sejuani, Aurora, Jinx, Nautilus]
+      enemy_team_picks: ["K'Sante", Viego, Syndra, Varus, Thresh]
+      bans: [Yone]
+      rank: "emerald+"
+    expected_good_picks: [Aatrox, Ambessa, Jax, Camille]
+    expected_bad_picks: [Gnar]  # doesn't pressure K'Sante enough
+
+  - name: standard_bot_lane
+    description: Standard bot lane pick, team already has good frontline
+    difficulty: easy
+    draft_state:
+      patch: "16.7"
+      user_role: bot
+      user_team_picks: [Aatrox, Sejuani, Ahri, Nautilus]
+      enemy_team_picks: [Gnar, Elise, Syndra]
+      bans: [Caitlyn, Yone]
+      rank: "emerald+"
+    expected_good_picks: [Jinx, Varus, "Kog'Maw", "Kai'Sa"]
+    expected_bad_picks: []
+
+  - name: engage_support_needed
+    description: Team has poke/kite comp but no engage, need a playmaking support
+    difficulty: easy
+    draft_state:
+      patch: "16.7"
+      user_role: support
+      user_team_picks: [Gnar, Graves, Orianna, Varus]
+      enemy_team_picks: [Aatrox, Sejuani, Aurora]
+      bans: [Yone, Caitlyn]
+      rank: "emerald+"
+    expected_good_picks: [Nautilus, Leona, Rell, Thresh]
+    expected_bad_picks: [Lulu]  # team needs engage not enchanter
+
+  # --- MEDIUM (5) ---
+  # requires balancing two agent perspectives
+
+  - name: counter_vs_synergy_mid
+    description: Best counter-pick for lane doesn't synergize well with team comp
+    difficulty: medium
+    draft_state:
+      patch: "16.7"
+      user_role: mid
+      user_team_picks: [Aatrox, Sejuani, Nautilus]
+      enemy_team_picks: [Gnar, Viego, Ahri, Jinx, Thresh]
+      bans: [Yone, Aurora]
+      rank: "emerald+"
+    expected_good_picks: [Orianna, Corki, "Twisted Fate"]
+    expected_bad_picks: [LeBlanc]  # assassin into Sejuani comp is bad synergy
+
+  - name: pro_trend_vs_soloq
+    description: A champion is great in pro but mediocre in solo queue at this rank
+    difficulty: medium
+    draft_state:
+      patch: "16.7"
+      user_role: jungle
+      user_team_picks: [Gnar, Ahri, Varus, Thresh]
+      enemy_team_picks: [Aatrox, Syndra, Caitlyn, Lulu]
+      bans: [Yone, Viego]
+      rank: "emerald+"
+    expected_good_picks: [Sejuani, "Rek'Sai", "Jarvan IV"]
+    expected_bad_picks: [Ivern]  # good in pro but rough in solo queue
+
+  - name: poke_vs_dive_dilemma
+    description: Team is poke-oriented, enemy is building a dive comp, need someone who can peel
+    difficulty: medium
+    draft_state:
+      patch: "16.7"
+      user_role: support
+      user_team_picks: [Gnar, Graves, Syndra, Varus]
+      enemy_team_picks: [Camille, LeeSin, LeBlanc, Draven]
+      bans: [Yone]
+      rank: "emerald+"
+    expected_good_picks: [Thresh, Braum, Alistar, Nautilus]
+    expected_bad_picks: [Maokai, Lulu]  # too passive against dive
+
+  - name: late_pick_top_flex
+    description: Last pick top lane, team needs AP damage, but also needs frontline
+    difficulty: medium
+    draft_state:
+      patch: "16.7"
+      user_role: top
+      user_team_picks: [Elise, "Twisted Fate", Jinx, Nautilus]
+      enemy_team_picks: [Gnar, Sejuani, Ahri, Varus, Thresh]
+      bans: [Yone, Aatrox]
+      rank: "emerald+"
+    expected_good_picks: ["K'Sante", Rumble]
+    expected_bad_picks: [Renekton, Camille]  # all-AD team if you pick another AD top
+
+  - name: adc_into_heavy_cc
+    description: Enemy has massive CC chain, need a safe ADC who can contribute from range
+    difficulty: medium
+    draft_state:
+      patch: "16.7"
+      user_role: bot
+      user_team_picks: [Aatrox, Sejuani, Aurora, Thresh]
+      enemy_team_picks: [Gnar, "Jarvan IV", Syndra, Nautilus]
+      bans: [Yone, Caitlyn]
+      rank: "emerald+"
+    expected_good_picks: [Varus, "Kog'Maw", Jinx]
+    expected_bad_picks: [Draven, "Kai'Sa"]  # too short-range into CC
+
+  # --- HARD (5) ---
+  # designed so multi-agent should win — requires combining patch context + pro + stats
+
+  - name: sleeper_buff_pickup
+    description: >
+      Corki got buffed in 16.7 (base AD + package CD). Solo queue stats
+      haven't caught up yet. Pro teams just started picking him. The multi-agent
+      system should identify this via PatchContextAgent + ProMetaAgent even though
+      StatsAgent alone might not flag him.
+    difficulty: hard
+    draft_state:
+      patch: "16.7"
+      user_role: mid
+      user_team_picks: [Aatrox, Sejuani, Varus, Nautilus]
+      enemy_team_picks: [Gnar, Viego, Ahri, Jinx, Thresh]
+      bans: [Yone, Aurora, Syndra]
+      rank: "emerald+"
+    expected_good_picks: [Corki, "Twisted Fate", Orianna]
+    expected_bad_picks: [LeBlanc]
+
+  - name: nerfed_trap_avoidance
+    description: >
+      Ambessa was nerfed in 16.7 (armor + W cooldown) after being buffed in 16.6.
+      Her stats may still look good from pre-nerf games. The system needs patch
+      context to know she's weaker now.
+    difficulty: hard
+    draft_state:
+      patch: "16.7"
+      user_role: top
+      user_team_picks: [Sejuani, Aurora, Jinx, Thresh]
+      enemy_team_picks: ["K'Sante", Viego, Syndra, Caitlyn, Lulu]
+      bans: [Yone, Gnar]
+      rank: "emerald+"
+    expected_good_picks: [Aatrox, Jax, Camille, Rumble]
+    expected_bad_picks: [Ambessa]  # nerfed this patch
+
+  - name: comp_puzzle_engage_ap
+    description: >
+      Team needs AP damage AND engage AND the pick has to not get destroyed
+      by the enemy comp. This is a genuine draft puzzle that requires
+      weighing stats + synergy + counter-pick.
+    difficulty: hard
+    draft_state:
+      patch: "16.7"
+      user_role: mid
+      user_team_picks: [Jax, "Rek'Sai", Jinx, Leona]
+      enemy_team_picks: [Aatrox, Sejuani, Caitlyn, Lulu]
+      bans: [Yone, Aurora, Syndra]
+      rank: "emerald+"
+    expected_good_picks: [Ahri, Orianna, "Twisted Fate"]
+    expected_bad_picks: [Azir, Corki]  # Azir nerfed, Corki is AD not AP
+
+  - name: three_patch_crossref
+    description: >
+      Aurora was buffed in 16.7 AND is trending in pro AND has good
+      synergy with the user's team (Sejuani CC chain). All three agents
+      should agree, which the head coach should weight heavily.
+    difficulty: hard
+    draft_state:
+      patch: "16.7"
+      user_role: mid
+      user_team_picks: [Aatrox, Sejuani, Thresh]
+      enemy_team_picks: [Gnar, Viego, Caitlyn, Lulu]
+      bans: [Yone, Syndra, Ahri]
+      rank: "emerald+"
+    expected_good_picks: [Aurora, Orianna, "Twisted Fate"]
+    expected_bad_picks: [LeBlanc, Azir]
+
+  - name: item_meta_shift
+    description: >
+      BotRK was nerfed in 16.7 and Liandry's was buffed in 16.6, which
+      shifts the meta toward AP-favoring comps. The system should factor
+      in item changes when recommending champions.
+    difficulty: hard
+    draft_state:
+      patch: "16.7"
+      user_role: jungle
+      user_team_picks: [Gnar, Orianna, Varus, Thresh]
+      enemy_team_picks: [Aatrox, Syndra, Jinx, Nautilus]
+      bans: [Yone, Viego]
+      rank: "emerald+"
+    expected_good_picks: [Sejuani, Elise, "Jarvan IV"]
+    expected_bad_picks: [Graves]  # AD jungler when team needs AP/tank
