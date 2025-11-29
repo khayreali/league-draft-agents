@@ -138,3 +138,78 @@ def recommend(
 
     console.print(table)
     typer.echo(f"\ntool calls: {output.tool_calls_made}")
+
+
+@app.command("eval")
+def run_eval(
+    scenarios: str = typer.Option(
+        "eval/scenarios.yaml", help="Path to eval scenarios YAML"
+    ),
+    baseline: bool = typer.Option(False, help="Evaluate the baseline instead of multi-agent"),
+):
+    """Run a system against the eval set."""
+    logging.basicConfig(level=logging.INFO)
+    from rich.console import Console
+    from rich.table import Table
+
+    from draft_analyst.agents.context import build_tool_executor
+    from draft_analyst.config import DEFAULT_AGENT_MODEL
+    from draft_analyst.evaluation.evaluator import Evaluator, aggregate_results
+    from draft_analyst.evaluation.loader import load_scenarios
+    from draft_analyst.llm_client import get_llm_client
+
+    scenario_list = load_scenarios(scenarios)
+    typer.echo(f"loaded {len(scenario_list)} scenarios")
+
+    tool_executor = build_tool_executor()
+    llm = get_llm_client()
+
+    if baseline:
+        from draft_analyst.agents.baseline import SingleAgentBaseline
+        agent = SingleAgentBaseline(llm, DEFAULT_AGENT_MODEL, tool_executor)
+    else:
+        from draft_analyst.agents.coordinator import LangGraphCoordinator
+        agent = LangGraphCoordinator(llm, DEFAULT_AGENT_MODEL, tool_executor)
+
+    evaluator = Evaluator(agent.run)
+    results = evaluator.evaluate(scenario_list)
+    agg = aggregate_results(results)
+
+    console = Console()
+    table = Table(title=f"Eval Results ({agg.get('system', '?')})")
+    table.add_column("Scenario", style="bold")
+    table.add_column("Top Pick", justify="center")
+    table.add_column("Top-3 Recall", justify="right")
+    table.add_column("Bad Avoid", justify="center")
+    table.add_column("Latency", justify="right")
+
+    for r in results:
+        top = "[green]Y[/green]" if r.top_pick_quality else "[red]N[/red]"
+        bad = "[green]Y[/green]" if r.bad_pick_avoidance else "[red]N[/red]"
+        table.add_row(r.scenario_name, top, f"{r.top_3_recall:.2f}", bad, f"{r.latency_ms:.0f}ms")
+
+    console.print(table)
+    typer.echo(f"\nTop Pick Accuracy: {agg['top_pick_accuracy']:.1%}")
+    typer.echo(f"Avg Top-3 Recall: {agg['avg_top3_recall']:.1%}")
+    typer.echo(f"Bad Pick Avoidance: {agg['bad_pick_avoidance']:.1%}")
+
+
+@app.command()
+def compare(
+    scenarios: str = typer.Option(
+        "eval/scenarios.yaml", help="Path to eval scenarios YAML"
+    ),
+    output: str = typer.Option(
+        "eval/results.json", help="Path to write JSON results"
+    ),
+):
+    """Run both systems on the eval set and print comparison."""
+    logging.basicConfig(level=logging.INFO)
+    from draft_analyst.evaluation.comparison import ComparisonRunner
+    from draft_analyst.evaluation.loader import load_scenarios
+
+    scenario_list = load_scenarios(scenarios)
+    typer.echo(f"loaded {len(scenario_list)} scenarios")
+
+    runner = ComparisonRunner(scenario_list, output_path=output)
+    runner.run()
