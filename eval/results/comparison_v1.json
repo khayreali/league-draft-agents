@@ -1,0 +1,929 @@
+{
+  "baseline": [
+    {
+      "scenario_name": "meta_mid_into_squishies",
+      "system_name": "baseline",
+      "recommendations": [
+        {
+          "champion": "Corki",
+          "score": 0.92,
+          "reasoning": "Dominating force in 16.7 meta with 60% pro win rate and 59% solo queue win rate. Exceptional synergy with your Jinx/Thresh combo (paired 7x in pro), and the most meta mid laner this patch. Only weakness is Syndra matchup, but she was nerfed in 16.7."
+        },
+        {
+          "champion": "LeBlanc",
+          "score": 0.81,
+          "reasoning": "Hard counter to Syndra (78% WR vs her, +28% delta) and strong into Caitlyn (83% WR). Excels at roaming with your Sejuani. Trade-off is weaker team synergy and moderate pro presence (44% WR)."
+        },
+        {
+          "champion": "Azir",
+          "score": 0.75,
+          "reasoning": "Strong pro presence (70% WR) with good matchup into Syndra (+17% delta). Solid 54% solo queue win rate. Pairs well with Ivern-style junglers in pro, though Sejuani isn't his typical teammate."
+        },
+        {
+          "champion": "Twisted Fate",
+          "score": 0.68,
+          "reasoning": "Good counter coverage across enemy team (wins into Gnar, Syndra, Caitlyn). Strong macro with Sejuani for roaming plays. Decent team synergy (+6%), but lower solo queue win rate (45%) limits consistency."
+        },
+        {
+          "champion": "Orianna",
+          "score": 0.62,
+          "reasoning": "Strong pair with Jinx in pro (4 games played, reliable 50% WR). Provides AoE control to complement Aatrox/Sejuani teamfighting. However, neutral into Syndra matchup and lacks clear advantages."
+        }
+      ],
+      "top_pick_quality": false,
+      "top_3_recall": 0.25,
+      "bad_pick_avoidance": false,
+      "reasoning_quality": null,
+      "latency_ms": 32167.1040058136,
+      "tool_call_count": 23
+    },
+    {
+      "scenario_name": "obvious_tank_jungle",
+      "system_name": "baseline",
+      "recommendations": [
+        {
+          "champion": "Nautilus",
+          "score": 0.92,
+          "reasoning": "64% win rate meta pick with devastating matchups vs Aatrox (+15.8% delta, 80% WR) and Graves (66% WR). Strong +0.206 team synergy with Draven/Lulu for engage patterns."
+        },
+        {
+          "champion": "Sejuani",
+          "score": 0.88,
+          "reasoning": "61% win rate with the highest team synergy (+0.238 delta). Crowd control chains perfectly with Ahri/Lulu/Camille. Favorable Graves matchup (62.5% WR) despite slight Aatrox deficit."
+        },
+        {
+          "champion": "Ivern",
+          "score": 0.8,
+          "reasoning": "55% win rate utility jungler. Strong into Aatrox (+10.7% delta, 66% WR) with shielding to negate burst. Good synergy (+0.204) with Draven hypercarry scaling, though weaker vs Graves."
+        },
+        {
+          "champion": "Rek'Sai",
+          "score": 0.65,
+          "reasoning": "Just buffed in Patch 16.7 (+0.1 AD ratio on Q, healing buff) to improve jungle viability. Suboptimal 48.9% WR overall, but patch direction suggests rising strength. Early game skirmisher advantage vs Graves in trenches."
+        }
+      ],
+      "top_pick_quality": false,
+      "top_3_recall": 0.5,
+      "bad_pick_avoidance": true,
+      "reasoning_quality": null,
+      "latency_ms": 34605.45492172241,
+      "tool_call_count": 16
+    },
+    {
+      "scenario_name": "free_counter_top",
+      "system_name": "baseline",
+      "recommendations": [
+        {
+          "champion": "Azir",
+          "score": 0.87,
+          "reasoning": "Azir has the best weighted matchup advantage (+0.175 delta) against the enemy team, particularly dominating K'Sante (71%), Syndra (71%), and Thresh (100%). He maintains strong pro play presence (70% WR, 10 picks) and positive team synergy (+0.032) despite 16.5 nerfs."
+        },
+        {
+          "champion": "Lulu",
+          "score": 0.82,
+          "reasoning": "Lulu counters the majority of enemy threats with strong matchups vs K'Sante (80%), Syndra (75%), and Thresh (80%), while maintaining 57% solo queue win rate. She provides universal peel for Jinx and synergizes with CC-heavy compositions."
+        },
+        {
+          "champion": "Braum",
+          "score": 0.75,
+          "reasoning": "Braum achieves strong counter matchups against Viego (75%), Varus (80%), and K'Sante (50%), with an average +0.170 delta. As a melee support-style top, he stacks well with Nautilus for dual-engage potential and shields Jinx from Varus/Thresh threats."
+        },
+        {
+          "champion": "Graves",
+          "score": 0.7,
+          "reasoning": "Graves delivers favorable matchups against Syndra (78%), K'Sante (75%), and Thresh (80%) with +0.134 average delta, plus strong solo queue stats. His burst damage accelerates Jinx damage with smoke screens for teamfights."
+        },
+        {
+          "champion": "Rell",
+          "score": 0.67,
+          "reasoning": "Rell shows strong matchups vs Syndra (83%), Viego (67%), and Thresh (67%) with +0.125 delta. She's a pro-trending tank (72% WR) and provides another CC anchor to complement your Sejuani/Nautilus engagement layers."
+        }
+      ],
+      "top_pick_quality": false,
+      "top_3_recall": 0.0,
+      "bad_pick_avoidance": true,
+      "reasoning_quality": null,
+      "latency_ms": 61312.506914138794,
+      "tool_call_count": 18
+    },
+    {
+      "scenario_name": "standard_bot_lane",
+      "system_name": "baseline",
+      "recommendations": [
+        {
+          "champion": "Zeri",
+          "score": 0.92,
+          "reasoning": "Top solo queue ADC (66% WR) with excellent synergy with your team (+10.7%). Crushes Elise (+22.9%) and performs well in the current meta. Pairs perfectly with Nautilus support."
+        },
+        {
+          "champion": "Draven",
+          "score": 0.85,
+          "reasoning": "Best counter-pick to enemy composition (avg +25.6% delta), particularly dominant vs Syndra (+47.8%) and Elise (+31.2%). Sacrifices some meta strength but provides exceptional matchup advantage."
+        },
+        {
+          "champion": "Corki",
+          "score": 0.78,
+          "reasoning": "Strong meta pick (59.1% WR) with good team synergy (+15.9%) and reliable matchups. Recently buffed in 16.7 (AD +3, package cooldown improved). Nautilus has 7 games together in pro play."
+        },
+        {
+          "champion": "Kog'Maw",
+          "score": 0.68,
+          "reasoning": "Solid win rate (55.1%) and strong vs Gnar (+16.3%). Recently buffed W attack speed in 16.7. However, struggles significantly vs Elise (-35.1%) and shows neutral team synergy (-1.4%)."
+        },
+        {
+          "champion": "Aphelios",
+          "score": 0.65,
+          "reasoning": "Balanced against all enemy matchups (avg +16.7% delta) with consistent win rate (46.8%). Strong in pro play trending (61.5% WR) but negative team synergy (-10.9%) limits effectiveness."
+        }
+      ],
+      "top_pick_quality": false,
+      "top_3_recall": 0.0,
+      "bad_pick_avoidance": true,
+      "reasoning_quality": null,
+      "latency_ms": 60380.01608848572,
+      "tool_call_count": 29
+    },
+    {
+      "scenario_name": "engage_support_needed",
+      "system_name": "baseline",
+      "recommendations": [
+        {
+          "champion": "Nautilus",
+          "score": 0.89,
+          "reasoning": "64.15% WR + 10.85% synergy bonus with your team. Excellent +15.85% delta vs Aatrox. Best engage tool to complement Orianna's control and Varus's sustained damage."
+        },
+        {
+          "champion": "Ivern",
+          "score": 0.72,
+          "reasoning": "55.93% WR with +10.73% delta vs Aatrox and balanced matchups across their team. While synergy is slightly negative, his utility and sustained shielding work well with Varus post-buffs."
+        },
+        {
+          "champion": "Maokai",
+          "score": 0.68,
+          "reasoning": "Strong +24.44% delta vs Aatrox and favorable vs Sejuani (+0.64%). Tank support identity fits your composition despite lower overall WR (42.22%)."
+        },
+        {
+          "champion": "Rell",
+          "score": 0.61,
+          "reasoning": "Top counter-pick option with +47.17% delta vs Aatrox, but significant weakness vs Sejuani (0% WR). High-risk if enemy jungler camps bot lane."
+        }
+      ],
+      "top_pick_quality": true,
+      "top_3_recall": 0.25,
+      "bad_pick_avoidance": true,
+      "reasoning_quality": null,
+      "latency_ms": 46199.48506355286,
+      "tool_call_count": 23
+    },
+    {
+      "scenario_name": "counter_vs_synergy_mid",
+      "system_name": "baseline",
+      "recommendations": [
+        {
+          "champion": "Corki",
+          "score": 0.92,
+          "reasoning": "59.1% solo queue WR + 60% pro WR with #1 trending status. Just buffed in 16.7 for stronger laning and more frequent package roams. Excellent synergy with your Nautilus/Sejuani engage comp and strong counters vs Ahri/Jinx."
+        },
+        {
+          "champion": "Orianna",
+          "score": 0.85,
+          "reasoning": "Strong counter to 4/5 enemies (especially Viego/Ahri/Jinx with +0.17 avg delta). 51.9% WR with reliable teamfight tool for your engage-heavy team composition."
+        },
+        {
+          "champion": "Lulu",
+          "score": 0.78,
+          "reasoning": "57.4% solo queue WR with +0.114 delta vs enemy comp. Shields Aatrox and Nautilus engage while countering Viego/Ahri/Jinx. Strong synergy (+0.087) with your support-heavy team."
+        },
+        {
+          "champion": "Azir",
+          "score": 0.72,
+          "reasoning": "54.4% WR with 70% pro play win rate (trending). Maintains wave control against Ahri while providing zone control for your engage champions, though slightly lower team synergy than other options."
+        }
+      ],
+      "top_pick_quality": true,
+      "top_3_recall": 0.6666666666666666,
+      "bad_pick_avoidance": true,
+      "reasoning_quality": null,
+      "latency_ms": 46041.90278053284,
+      "tool_call_count": 16
+    },
+    {
+      "scenario_name": "pro_trend_vs_soloq",
+      "system_name": "baseline",
+      "recommendations": [
+        {
+          "champion": "Nautilus",
+          "score": 0.88,
+          "reasoning": "Excellent synergy with team (+0.30), strong counter matchups vs Syndra/Caitlyn, trending in pro with 71.4% WR, and complements Thresh for double-engage CC chains. 64.2% win rate in solo queue."
+        },
+        {
+          "champion": "Maokai",
+          "score": 0.82,
+          "reasoning": "Best counter pick overall (+0.265 avg delta) with strong performance vs Aatrox (+0.244), Syndra (+0.328), and Caitlyn (+0.411). Pro play synergy with Gnar (6 appearances), though lower solo queue win rate reflects difficulty at lower ranks."
+        },
+        {
+          "champion": "Sejuani",
+          "score": 0.76,
+          "reasoning": "61.5% win rate in solo queue, good team synergy (+0.115), and favorable vs Lulu. Trending in pro (66.7% WR), provides engage synergy with Thresh, though weaker counter to Syndra compared to alternatives."
+        },
+        {
+          "champion": "Elise",
+          "score": 0.71,
+          "reasoning": "Excellent counter matchups across all four enemy picks (+0.134 avg delta), particularly strong vs Syndra (+0.246) and Caitlyn (+0.204). Recent 16.6 spider form attack speed buff improving her jungle clear, though solo queue win rate (42.1%) reflects current meta weakness."
+        }
+      ],
+      "top_pick_quality": false,
+      "top_3_recall": 0.3333333333333333,
+      "bad_pick_avoidance": true,
+      "reasoning_quality": null,
+      "latency_ms": 43757.65085220337,
+      "tool_call_count": 18
+    },
+    {
+      "scenario_name": "poke_vs_dive_dilemma",
+      "system_name": "baseline",
+      "recommendations": [
+        {
+          "champion": "Nautilus",
+          "score": 0.95,
+          "reasoning": "Dominates enemy matchups (+25.6% average delta vs Camille/Lee/LeBlanc/Draven with 100% WR vs Draven), has 64.2% solo queue WR, synergizes strongly with your Syndra (+9.6%), and is proven in pro play with 71.4% WR. Perfect draft fit for countering Draven while amplifying your team's lockdown potential."
+        },
+        {
+          "champion": "Sejuani",
+          "score": 0.78,
+          "reasoning": "Third-strongest solo queue support (61.5% WR), provides excellent CC to complement Gnar/Graves/Syndra wombo combos, has good synergy with your team (+5.9%), and is proven in pro (66.7% WR, 9 picks). Slightly weaker than Nautilus into Draven specifically but more flexible overall."
+        },
+        {
+          "champion": "Braum",
+          "score": 0.68,
+          "reasoning": "Strong synergy with your team composition (+9.6% delta, same as Nautilus), provides crucial anti-AD protection against Draven, and offers decent team utility. While his matchup deltas aren't as extreme, his ability to peel Draven makes him solid here despite modest 41.2% solo queue WR."
+        },
+        {
+          "champion": "Lulu",
+          "score": 0.65,
+          "reasoning": "Solid 57.4% solo queue WR and excels against Draven (62.5% WR), but has modest negative synergy with your team (-11.7%). Can provide utility and shielding to enable Varus, but Nautilus/Sejuani offer better overall matchups and team synergy."
+        },
+        {
+          "champion": "Rell",
+          "score": 0.62,
+          "reasoning": "High-impact pro support (72.7% WR, strong engagement tool), but minor negative team synergy (-3.1%) and less specialized into Draven than alternatives. Good alternative if you want pro-proven engagement support but Nautilus is strictly better here."
+        }
+      ],
+      "top_pick_quality": true,
+      "top_3_recall": 0.5,
+      "bad_pick_avoidance": false,
+      "reasoning_quality": null,
+      "latency_ms": 68197.50499725342,
+      "tool_call_count": 24
+    },
+    {
+      "scenario_name": "late_pick_top_flex",
+      "system_name": "baseline",
+      "recommendations": [
+        {
+          "champion": "Aurora",
+          "score": 0.92,
+          "reasoning": "Aurora has exceptional matchup advantages (+10.9% delta overall, 100% WR vs Ahri/Thresh), outstanding synergy with your team (+18.2%), 59% solo queue win rate, and received buffs in 16.7 to her ultimate and burst. She's the perfect counterpick to this composition."
+        },
+        {
+          "champion": "Zeri",
+          "score": 0.85,
+          "reasoning": "Zeri boasts the highest top lane win rate at 66% with strong pro presence (66.7% WR). She provides the best team synergy (+26.9%) with your composition and deals well against Thresh and Varus, though slightly weaker vs Sejuani."
+        },
+        {
+          "champion": "K'Sante",
+          "score": 0.78,
+          "reasoning": "K'Sante has excellent Gnar matchup (+25.8% delta) and strong overall matchups (+8.6% avg delta). He just received buffs in 16.7 to Q and W to improve his tank viability. His primary weakness is slightly negative team synergy, but the matchups are strong enough to overcome it."
+        },
+        {
+          "champion": "Corki",
+          "score": 0.75,
+          "reasoning": "Corki is trending in pro play with 60% WR and has solid synergy with your team (+11.1%). The 16.7 Package cooldown buff (300\u2192240s) makes him more viable. Good teamfight value with Jinx, though less specialized in the matchups than Aurora."
+        },
+        {
+          "champion": "Jax",
+          "score": 0.68,
+          "reasoning": "Jax performs well vs Gnar (+14.7%) and is a solid 52% WR pick. However, he received a nerf in 16.7 (Counter Strike cooldown increased), reducing his reliability in short trades. Minimal team synergy (+1.1%) also limits his appeal."
+        }
+      ],
+      "top_pick_quality": false,
+      "top_3_recall": 0.5,
+      "bad_pick_avoidance": true,
+      "reasoning_quality": null,
+      "latency_ms": 46786.17596626282,
+      "tool_call_count": 16
+    },
+    {
+      "scenario_name": "adc_into_heavy_cc",
+      "system_name": "baseline",
+      "recommendations": [
+        {
+          "champion": "Corki",
+          "score": 0.92,
+          "reasoning": "Exceptional into Nautilus (+20.9% delta), received 16.7 buffs, strong pro presence (60% WR, 20 picks), and excellent synergy with your team (+19.9%). His mobility and package lets him kite Nautilus engage."
+        },
+        {
+          "champion": "Zeri",
+          "score": 0.88,
+          "reasoning": "Dominates solo queue meta (66% WR, #1 ADC), maintains edge vs Nautilus (+5.4%), and synergizes well with your team (+9.7%). High mobility helps against Nautilus and Gnar."
+        },
+        {
+          "champion": "Graves",
+          "score": 0.72,
+          "reasoning": "Strong meta champion (54.2% WR) with good offensive stats. While he struggles vs Nautilus (-20.8%), he has solid matchups vs Gnar and Jarvan IV in teamfights, and mobility helps him position safely."
+        },
+        {
+          "champion": "Varus",
+          "score": 0.68,
+          "reasoning": "Neutral matchup vs Nautilus (0% delta) with stable 50% WR. Has utility with W slow/blight to kite threats and good range positioning to avoid Nautilus engage. Works reasonably with your CC-heavy team."
+        },
+        {
+          "champion": "Jinx",
+          "score": 0.65,
+          "reasoning": "Strong in pro meta (60% WR, 15 picks) but struggles vs Nautilus (-13% delta). Decent synergy (+3.9%) with your team, though her immobility is concerning against Nautilus/Gnar engage."
+        }
+      ],
+      "top_pick_quality": false,
+      "top_3_recall": 0.0,
+      "bad_pick_avoidance": true,
+      "reasoning_quality": null,
+      "latency_ms": 81359.70401763916,
+      "tool_call_count": 36
+    },
+    {
+      "scenario_name": "sleeper_buff_pickup",
+      "system_name": "baseline",
+      "recommendations": [
+        {
+          "champion": "Corki",
+          "score": 0.88,
+          "reasoning": "59.1% WR in solo queue with 60% pro play WR; outstanding synergy with your team (+0.183), and performs reasonably vs Ahri. Top mid laner in 16.7 meta and pairs perfectly with Nautilus/Sejuani engage."
+        },
+        {
+          "champion": "Orianna",
+          "score": 0.85,
+          "reasoning": "Strong 51.9% solo queue WR; crushes Viego (100%), Ahri (66.7%), and Jinx (66.7%). Provides essential teamfight ball control that complements your engage-heavy composition and excels in pro play (50% WR)."
+        },
+        {
+          "champion": "K'Sante",
+          "score": 0.79,
+          "reasoning": "Best counter-pick overall (avg +0.173 delta) with 71.4% vs Gnar, 66.7% vs Ahri/Jinx. Just buffed in 16.7 (Q damage +10, W cap increased). Only drawback is marginal synergy compared to other options and redundant tankiness with your team."
+        },
+        {
+          "champion": "Lulu",
+          "score": 0.74,
+          "reasoning": "Solid 57.4% WR with strong matchups vs Viego (75%), Ahri (75%), and Jinx (71.4%). Supports your carries while having positive matchups. Less flashy than Corki but reliable and enables Varus."
+        },
+        {
+          "champion": "Twisted Fate",
+          "score": 0.68,
+          "reasoning": "Good synergy (+0.111) with your teamfight setup; trending in pro play with multiple pro teammates listed (Leona, Rell). However, has poor Ahri matchup (0% WR sample) and lower baseline solo queue WR (45.1%)."
+        }
+      ],
+      "top_pick_quality": true,
+      "top_3_recall": 0.6666666666666666,
+      "bad_pick_avoidance": true,
+      "reasoning_quality": null,
+      "latency_ms": 86149.75118637085,
+      "tool_call_count": 29
+    },
+    {
+      "scenario_name": "nerfed_trap_avoidance",
+      "system_name": "baseline",
+      "recommendations": [
+        {
+          "champion": "Nautilus",
+          "score": 0.92,
+          "reasoning": "64% win rate (meta-topping), strong positive team synergy (+10%), and solid matchups vs both K'Sante and Syndra. Tankiness synergizes well with Thresh/Sejuani CC combo for coordinated engages."
+        },
+        {
+          "champion": "Aatrox",
+          "score": 0.85,
+          "reasoning": "55.3% win rate with excellent Viego matchup (+19.7%) and decent K'Sante scaling. Strong auto-attack damage and sustain fits well into team's engage pattern, though slight negative synergy is offset by matchup advantage."
+        },
+        {
+          "champion": "Camille",
+          "score": 0.76,
+          "reasoning": "56.8% win rate provides reliable split-push and 1v1 threat. Positive team synergy (+4.5%) and solid positioning in meta, though doesn't have standout matchups against enemy team."
+        },
+        {
+          "champion": "Zeri",
+          "score": 0.62,
+          "reasoning": "Highest solo queue win rate (66%) but has notable weakness vs K'Sante enemy top laner (-16% delta). Use only if confident in avoiding extended laning vs K'Sante."
+        },
+        {
+          "champion": "Elise",
+          "score": 0.58,
+          "reasoning": "Excellent matchups vs K'Sante (+24.6%) and Syndra (+24.6%) but low base win rate (42.1%) makes this a risky one-trick counter. Better as desperate counterpick than first choice."
+        }
+      ],
+      "top_pick_quality": false,
+      "top_3_recall": 0.5,
+      "bad_pick_avoidance": true,
+      "reasoning_quality": null,
+      "latency_ms": 69453.2082080841,
+      "tool_call_count": 33
+    },
+    {
+      "scenario_name": "comp_puzzle_engage_ap",
+      "system_name": "baseline",
+      "recommendations": [
+        {
+          "champion": "Corki",
+          "score": 0.92,
+          "reasoning": "Exceptional synergy with your team (+0.119, especially Leona), strong solo queue stats (59% WR, #3 meta), and just received patch 16.7 buffs. Highly prioritized in pro play (60% WR) with Leona as his most common teammate."
+        },
+        {
+          "champion": "Maokai",
+          "score": 0.85,
+          "reasoning": "Best counter-pick profile against enemy team (+0.185 avg delta), dominates Aatrox (67% WR) and Caitlyn (83% WR). Strong pro presence (50% WR) though slightly negative team synergy."
+        },
+        {
+          "champion": "LeBlanc",
+          "score": 0.8,
+          "reasoning": "Strong counter-pick against the enemy composition (+0.181 avg delta), especially vs Caitlyn (83% WR) and Sejuani (67% WR). Positive team synergy (+0.078) with solid solo queue baseline (50% WR)."
+        },
+        {
+          "champion": "Rumble",
+          "score": 0.75,
+          "reasoning": "Solid meta pick (51% WR) with favorable matchups vs Caitlyn (86% WR) and Sejuani (70% WR). Patch 16.7 neutral for Rumble but remains a reliable choice despite slightly negative team synergy."
+        },
+        {
+          "champion": "Orianna",
+          "score": 0.68,
+          "reasoning": "Decent meta positioning (52% WR) with favorable Aatrox matchup (75% WR), but shows negative team synergy and less pronounced counter-pick value against Lulu compared to other picks."
+        }
+      ],
+      "top_pick_quality": false,
+      "top_3_recall": 0.0,
+      "bad_pick_avoidance": false,
+      "reasoning_quality": null,
+      "latency_ms": 53591.57872200012,
+      "tool_call_count": 20
+    },
+    {
+      "scenario_name": "three_patch_crossref",
+      "system_name": "baseline",
+      "recommendations": [
+        {
+          "champion": "Corki",
+          "score": 0.92,
+          "reasoning": "Just buffed in 16.7 (base AD +3, Package on 240s cooldown), trending 60% WR in pro with 20 picks. Exceptional synergy with Thresh/Sejuani for teamfight follow-up damage. Solid mid-game spike aligns with your engage-heavy comp."
+        },
+        {
+          "champion": "Orianna",
+          "score": 0.88,
+          "reasoning": "52% solo queue WR with 27% pick rate shows consistency. Dominates Viego matchup (100% WR), strong into Caitlyn/Gnar. Positive synergy with team and provides utility to enable Aatrox + Thresh engage patterns."
+        },
+        {
+          "champion": "LeBlanc",
+          "score": 0.75,
+          "reasoning": "Strong counter to Caitlyn (+33% delta) and Viego (+12.5%). High burst assassination potential fits emerald+ climbing. Negative synergy (-10.4%) is offset by favorable matchups against their highest-impact threats."
+        },
+        {
+          "champion": "Aurora",
+          "score": 0.72,
+          "reasoning": "Recently buffed (R cooldown, E AP ratio) to improve mid viability. 59% WR but lower pick rate means less data. Decent matchup vs Viego. Negative team synergy limits recommendation despite good individual stats."
+        },
+        {
+          "champion": "Twisted Fate",
+          "score": 0.68,
+          "reasoning": "Strong Gnar and Caitlyn matchups (+21.5% vs both). Map presence pairs well with Sejuani roams. However, struggling Viego matchup (-7.6%) and weak overall winrate (45%) make this conditional on enemy comp focus."
+        }
+      ],
+      "top_pick_quality": false,
+      "top_3_recall": 0.3333333333333333,
+      "bad_pick_avoidance": false,
+      "reasoning_quality": null,
+      "latency_ms": 78526.44300460815,
+      "tool_call_count": 22
+    },
+    {
+      "scenario_name": "item_meta_shift",
+      "system_name": "baseline",
+      "recommendations": [
+        {
+          "champion": "Sejuani",
+          "score": 0.92,
+          "reasoning": "61.5% solo queue WR with strong pro presence (66.7% WR, 9 picks). Excellent team synergy (+3.8%), and covers enemy team's weaknesses while synergizing well with Gnar/Orianna combo."
+        },
+        {
+          "champion": "Elise",
+          "score": 0.78,
+          "reasoning": "Strong counter to Syndra (66.7%) and Nautilus (60%), with avg +12% matchup delta vs enemy team. Pro trending shows solid performance (50% WR), though solo queue WR is modest at 42.1%."
+        },
+        {
+          "champion": "Ivern",
+          "score": 0.75,
+          "reasoning": "55.9% solo queue WR with high 29.5% pick rate indicates meta-strong pick. Good team synergy and fits the Orianna/Thresh support playstyle, though lacks hard counters to enemy team."
+        },
+        {
+          "champion": "Graves",
+          "score": 0.71,
+          "reasoning": "54.2% WR and pro trending support viability. Reasonable team synergy (+2.5%), though weak vs Nautilus (-20.8% delta). Offers damage-focused playstyle versus control options."
+        },
+        {
+          "champion": "Rell",
+          "score": 0.68,
+          "reasoning": "72.7% pro WR and 52.8% solo queue WR demonstrate viability. Best synergy (+5.5%) among control jungles, but lacks specific counters to enemy composition. Better as supportive tank."
+        }
+      ],
+      "top_pick_quality": true,
+      "top_3_recall": 0.6666666666666666,
+      "bad_pick_avoidance": false,
+      "reasoning_quality": null,
+      "latency_ms": 70777.74405479431,
+      "tool_call_count": 28
+    }
+  ],
+  "multi_agent": [
+    {
+      "scenario_name": "meta_mid_into_squishies",
+      "system_name": "error",
+      "recommendations": [],
+      "top_pick_quality": false,
+      "top_3_recall": 0.0,
+      "bad_pick_avoidance": true,
+      "reasoning_quality": null,
+      "latency_ms": 64865.776777267456,
+      "tool_call_count": 0
+    },
+    {
+      "scenario_name": "obvious_tank_jungle",
+      "system_name": "error",
+      "recommendations": [],
+      "top_pick_quality": false,
+      "top_3_recall": 0.0,
+      "bad_pick_avoidance": true,
+      "reasoning_quality": null,
+      "latency_ms": 50706.5589427948,
+      "tool_call_count": 0
+    },
+    {
+      "scenario_name": "free_counter_top",
+      "system_name": "error",
+      "recommendations": [],
+      "top_pick_quality": false,
+      "top_3_recall": 0.0,
+      "bad_pick_avoidance": true,
+      "reasoning_quality": null,
+      "latency_ms": 61423.66170883179,
+      "tool_call_count": 0
+    },
+    {
+      "scenario_name": "standard_bot_lane",
+      "system_name": "error",
+      "recommendations": [],
+      "top_pick_quality": false,
+      "top_3_recall": 0.0,
+      "bad_pick_avoidance": true,
+      "reasoning_quality": null,
+      "latency_ms": 39936.89799308777,
+      "tool_call_count": 0
+    },
+    {
+      "scenario_name": "engage_support_needed",
+      "system_name": "error",
+      "recommendations": [],
+      "top_pick_quality": false,
+      "top_3_recall": 0.0,
+      "bad_pick_avoidance": true,
+      "reasoning_quality": null,
+      "latency_ms": 23866.85800552368,
+      "tool_call_count": 0
+    },
+    {
+      "scenario_name": "counter_vs_synergy_mid",
+      "system_name": "error",
+      "recommendations": [],
+      "top_pick_quality": false,
+      "top_3_recall": 0.0,
+      "bad_pick_avoidance": true,
+      "reasoning_quality": null,
+      "latency_ms": 50755.57494163513,
+      "tool_call_count": 0
+    },
+    {
+      "scenario_name": "pro_trend_vs_soloq",
+      "system_name": "error",
+      "recommendations": [],
+      "top_pick_quality": false,
+      "top_3_recall": 0.0,
+      "bad_pick_avoidance": true,
+      "reasoning_quality": null,
+      "latency_ms": 40318.80187988281,
+      "tool_call_count": 0
+    },
+    {
+      "scenario_name": "poke_vs_dive_dilemma",
+      "system_name": "multi_agent",
+      "recommendations": [
+        {
+          "champion": "Nautilus",
+          "score": 0.94,
+          "reasoning": "Unanimous consensus pick with exceptional fundamentals. Stats: 64.15% WR (53 games, elite reliability) with +35.8% delta vs Draven, +23.3% vs Camille. Pro Meta: 71.4% WR (10-4), 28% pick rate, proven with Syndra (3 co-picks). Patch: 16.6 buff + Hollow Radiance synergy improves itemization. Synergy: +0.72 overall. Critical strength is Gnar synergy (+40.4% delta, 3-3 W/L)\u2014your team's primary engagement axis. Varus partnership proven (7-11 W/L). Addresses Draven threat directly. Only weakness is Graves synergy (-9.2%), but this reflects your team's existing Graves/Varus structural issue, not Nautilus failing. **CONVICTION: HIGH. Lock this in.**"
+        },
+        {
+          "champion": "Leona",
+          "score": 0.68,
+          "reasoning": "Conditional second choice if Nautilus is banned. Stats: 52% WR (18 games, highest pick rate). Pro Meta: 50% WR with highest safety/consistency. Patch: buffed in 16.5, reliable fundamentals. Synergy: -0.19 overall\u2014significantly negative across the board (-13.5% Gnar, -19.7% Graves, -23.2% Syndra, -17.6% Varus). **She performs worse with your specific team than Nautilus despite comparable raw stats.** However, she's still a functional engage tool if forced into a pivot. The all-in pattern works with Varus bot lane (only positive synergy pairing). Trade-off: lower team cohesion but guaranteed baseline reliability. **CONVICTION: LOW-MEDIUM. Only pick if Nautilus unavailable.**"
+        },
+        {
+          "champion": "Rell",
+          "score": 0.61,
+          "reasoning": "High statistical ceiling but poor team fit. Stats: 52.8% WR, underrated per patch context. Pro Meta: 72.7% WR (8-11, second-best support), excellent into LeBlanc disruption. Patch: trending pick with solid fundamentals. Synergy: -0.03 overall (near-neutral but masks critical problems). Fatal flaw: Rell-Syndra synergy is -29.4% (14.3% WR in 7 games)\u2014your mid-laner actively clashes with her engage pattern. Rell-Graves also weak (-9.1%, 44.4% WR). Only Rell-Varus works (+20.0%). **The champion is strong; your composition rejects her.** Avoid unless your Syndra player can completely pivot playstyle. **CONVICTION: LOW. Synergy data is too negative.**"
+        },
+        {
+          "champion": "Maokai",
+          "score": 0.52,
+          "reasoning": "Tempting for Lee Sin counter (+57.8% delta) but team-wide friction outweighs the matchup advantage. Stats: 42.2% baseline WR with +11.6% avg delta vs enemy comp (not reliable enough). Pro Meta: minimal presence (niche pick). Patch: no recent buffs; static pick. Synergy: -0.02 overall. Critical failure: Gnar-Maokai is -18.7% (-0.30 WR together)\u2014worse than Leona on your primary engagement axis. Maokai-Varus weak (-6.1%). Only works with Graves (+18.5%), but that's insufficient to justify picking into your full comp. **The +57.8% vs LeeSin is a red herring\u2014one favorable matchup doesn't compensate for four poor ones.** **CONVICTION: VERY LOW. Skip entirely.**"
+        },
+        {
+          "champion": "Karma",
+          "score": 0.59,
+          "reasoning": "Alternative recommendation outside top candidates: Karma isn't in the specialist data, but she addresses your team's core gaps better than Corki/Jinx/Maokai. Your composition needs: (1) **reliable peel into LeBlanc burst** (Nautilus provides; alternatives lack it), (2) **utility/shields** (Karma provides via Inspire), (3) **engage amplification** (Gnar + Karma works better than Gnar + immobile supports). Karma synergizes with Syndra burst patterns and provides defensive tools your team lacks. Stats likely solid (current meta favors enchanter supports). Synergy prediction: Better than Leona with Gnar/Syndra due to utility/amplification. **Consider as a pivot if both Nautilus and Leona are unavailable.** **CONVICTION: MEDIUM (data-dependent\u2014no specialist agent analysis provided).**"
+        }
+      ],
+      "top_pick_quality": true,
+      "top_3_recall": 0.25,
+      "bad_pick_avoidance": false,
+      "reasoning_quality": null,
+      "latency_ms": 136923.88033866882,
+      "tool_call_count": 35
+    },
+    {
+      "scenario_name": "late_pick_top_flex",
+      "system_name": "multi_agent",
+      "recommendations": [
+        {
+          "champion": "Jax",
+          "score": 0.82,
+          "reasoning": "Jax emerges as the strongest pick despite mixed synergy signals. Pro meta (64.3% WR, 28% PR) and stats (52% WR, favorable into 4/5 enemy picks) strongly align. Critically, Jax + Nautilus has exceptional synergy (+13.4%), which is your team's primary engagement tool. While Jax + Elise shows poor synergy (-22.1%), this is manageable if your team plays around mid-game timing windows where Elise falls off and Jax scales up. The matchup into Gnar is favorable, and Jax's split-push pressure complements TF roams. Pick Jax if you're comfortable managing the early-mid game carefully."
+        },
+        {
+          "champion": "Camille",
+          "score": 0.76,
+          "reasoning": "Camille offers a more balanced fit than K'Sante despite lower raw scores. Pro meta recommends (58.3% WR, 24% PR), and the synergy data shows EXCELLENT pairing with Jinx (+20.1%), your primary win condition. The Camille + Elise weakness (-12.0%) is notable but less critical than Jax's conflict. Camille provides engage without redundancy in the way K'Sante does (you don't stack three front-liners). Strong roaming synergy with TF (+4.6%) enables map pressure. Into the enemy comp, she locks down Ahri and provides isolation tools. A solid, reliable pick."
+        },
+        {
+          "champion": "K'Sante",
+          "score": 0.68,
+          "reasoning": "K'Sante is statistically strongest (pro: 92%, patch: direct buffs in 16.7, stats: +8.6% delta), BUT the synergy data reveals why to be cautious. Overall synergy is near-zero (-0.006), with critical negatives vs Elise (-0.105) and Jinx (-0.065) that aren't offset by Nautilus pairing (+0.201). You'd be picking into the matchup (dominates Gnar at +25.8%) rather than into your team composition. The redundant engage problem is real: Nautilus + Elise + K'Sante = three initiation sources fighting for priority. Only recommend if you're explicitly locking in K'Sante for matchup value and accepting the composition risk. Consider this a 'high floor, lower ceiling' pick for your specific draft."
+        },
+        {
+          "champion": "Ornn",
+          "score": 0.71,
+          "reasoning": "Ornn doesn't appear in the specialist recommendations but deserves consideration as a composition-complete pick. He solves three critical problems: (1) Provides tankiness + peel for Jinx without redundant engage like K'Sante, (2) AP damage scaling for your AD-heavy comp (Jax/Jinx/K'Sante alternatives), (3) Item upgrade utility amplifies your entire team's damage. Ornn synergizes well with Nautilus (mutual frontline), Twisted Fate (sustain + utility), and most critically, Elise (doesn't compete for early game resources). While not featured in pro meta as heavily as Jax/Camille, Ornn is a flex pick that completes your team's scaling profile. Into Gnar, Ornn scales similarly and can itemize for the matchup."
+        },
+        {
+          "champion": "Sion",
+          "score": 0.7,
+          "reasoning": "Sion is another composition anchor that deserves strong consideration over lower-synergy stat picks. He provides: (1) Massive HP scaling that synergizes with Nautilus engage (easier for him to lock targets), (2) AP scaling for your team's damage distribution (alongside Elise, Twisted Fate), (3) Zero redundancy with Elise's early game (Sion prefers scaling), (4) Excellent Nautilus + Sion teamfight patterns (mutual hard CC). While individual matchup stats vs Gnar/Sejuani are less impressive than K'Sante, Sion's team enablement and scaling profile better align with your composition's mid-to-late game win condition. A 'system pick' that makes everyone better rather than a stat optimizer."
+        }
+      ],
+      "top_pick_quality": false,
+      "top_3_recall": 0.5,
+      "bad_pick_avoidance": false,
+      "reasoning_quality": null,
+      "latency_ms": 119853.71494293213,
+      "tool_call_count": 29
+    },
+    {
+      "scenario_name": "adc_into_heavy_cc",
+      "system_name": "multi_agent",
+      "recommendations": [
+        {
+          "champion": "Corki",
+          "score": 0.89,
+          "reasoning": "Patch context: 59% WR, +3 base AD and 60s Package CD reduction directly address laning weakness vs Nautilus (stats agent validation). Synergy: 0.76 rating with elite Sejuani pairing (1.0 WR, +0.40 delta) and proven Thresh synergy (60% WR together). Fills critical team gap\u2014your comp lacked reliable AP scaling. Package cooldown buff enables mid-game teamfight follow-up when Sejuani engages. Early-patch momentum + patch-targeted buffs override all other considerations."
+        },
+        {
+          "champion": "Varus",
+          "score": 0.68,
+          "reasoning": "Stats agent: W on-hit buff (7\u21929 damage scaling). Patch context: 50% WR despite buff signals emerging effect. CRITICAL CAVEAT: Synergy shows 0% WR with Thresh (-0.45 delta)\u2014this is a hard veto if support is locked. However, exceptional Aatrox synergy (100% WR, +0.47 delta across 7 games) and solid Sejuani pairing (71% WR, +0.16 delta) provide win condition if your support can pivot away from Thresh or provide utility-heavy playstyle. Recommendation: Only if team flexibility exists; otherwise skip."
+        },
+        {
+          "champion": "Kog'Maw",
+          "score": 0.64,
+          "reasoning": "Patch context: Attack speed W buff shifts to sustained hypercarry. Stats: 55% WR is solid. Synergy: 0.52 rating with strong Aurora pairing (0.284 delta, 85.7% WR)\u2014she provides the protective CC window Kog needs to scale. WEAKNESS: Poor Thresh synergy (-0.140 delta, 33% WR). Team composition works *through* Aurora's dominance rather than as balanced unit. Recommendation: Consider only if Aurora is your primary win condition and you can mitigate Thresh's roaming tendency with vision/early game safety."
+        },
+        {
+          "champion": "Jhin",
+          "score": 0.61,
+          "reasoning": "Not mentioned by specialists, but fits critical gaps: Jhin provides utility (root, 4th shot execute) that works with Thresh hooks and enables Sejuani follow-up without the Thresh synergy problems of Varus. Utility ADC profile aligns with your peel-heavy comp better than raw DPS carries. Recommendation: If Corki unavailable and you want safer team synergy than Varus/Kog'Maw, Jhin is a fallback that doesn't create composition friction. Requires champion pool availability."
+        },
+        {
+          "champion": "Ezreal",
+          "score": 0.59,
+          "reasoning": "Stats agent matchup context: Reasonable into Nautilus (can kite with E). Provides self-peel that reduces reliance on Thresh defensive setup. Utility profile (Q poke, W damage amp, E escape) enables varied playstyles with your engage comp. Not specialists' top choice, but avoids synergy disasters of Jinx/Aphelios. Recommendation: Fallback if Corki banned; safer pick than meta alternatives with poor team fit."
+        }
+      ],
+      "top_pick_quality": false,
+      "top_3_recall": 0.6666666666666666,
+      "bad_pick_avoidance": true,
+      "reasoning_quality": null,
+      "latency_ms": 101977.34808921814,
+      "tool_call_count": 22
+    },
+    {
+      "scenario_name": "sleeper_buff_pickup",
+      "system_name": "multi_agent",
+      "recommendations": [
+        {
+          "champion": "Orianna",
+          "score": 0.96,
+          "reasoning": "Consensus pick across all three agents (stats: 52% WR, 54 games; pro: 50% WR, 14-pick trend; patch: benefits from Syndra removal). Elite synergy with Nautilus (+6.3%) and Aatrox (+6.4%), creating powerful Shockwave\u2192engage chains. +2.5% team synergy delta confirms she directly improves composition cohesion. Provides necessary mid-lane control and AP scaling to balance Varus AD while maintaining your lockdown gameplan. Best overall value."
+        },
+        {
+          "champion": "Corki",
+          "score": 0.87,
+          "reasoning": "Patch-driven pick with major buffs (Base AD +3, Package cooldown 240s, 59% WR). Exceptional synergy with Sejuani (100% WR, +0.40 delta) validates engagement into organized play. Fills critical AP damage gap missing from your composition. Strong Varus pairing (+0.25 delta) means your dual carries amplify each other. Early AD pressure handles Ahri lane threat. Team-wide +0.18 delta confirms positive fit despite slight Nautilus friction."
+        },
+        {
+          "champion": "Twisted Fate",
+          "score": 0.73,
+          "reasoning": "Smart meta pick despite weak 41% solo WR. Phenomenal synergy with Sejuani (+0.217, 75% WR across 12 games) and Nautilus (+0.204, 75% WR across 8 games). Gold Card chains into your engage rotation, creating guaranteed lockdown scenarios. 24% pro pick rate signals organized-play viability. Maps pressure against roaming Viego threat. Composition multiplier\u2014he enables your hard-CC team to convert advantages, justifying the individual stat underperformance."
+        },
+        {
+          "champion": "Azir",
+          "score": 0.71,
+          "reasoning": "Pro meta trending (70% WR from 10-pick dataset, strong LCK presence) with solid Nautilus synergy (+15.7% delta, 60% WR together). Provides teamfight damage and control to complement your engage-heavy comp. However, synergy evaluation correctly identifies marginal overall fit (+5.86% team delta) and weakness with Sejuani (-2.4%). Acceptable as a safe, meta-relevant pick, but doesn't solve team composition gaps. Ranks below Corki/Twisted Fate due to lower synergy ceiling."
+        },
+        {
+          "champion": "K'Sante",
+          "score": 0.68,
+          "reasoning": "Strong matchup delta strategy (+17.3% avg into enemy comp, especially Gnar). Excellent Nautilus pairing (+20.1% synergy). However, weak Sejuani synergy (-3.6%) and mediocre Varus alignment (+2.2%) reveal team composition mismatch. You already have heavy CC layering; K'Sante duplicates this instead of filling AP/damage gaps. Lower baseline WR (45.7%) and small sample size limit reliability. Only consider if meta dictates hard Gnar counter is essential."
+        }
+      ],
+      "top_pick_quality": true,
+      "top_3_recall": 1.0,
+      "bad_pick_avoidance": true,
+      "reasoning_quality": null,
+      "latency_ms": 97050.72689056396,
+      "tool_call_count": 33
+    },
+    {
+      "scenario_name": "nerfed_trap_avoidance",
+      "system_name": "multi_agent",
+      "recommendations": [
+        {
+          "champion": "Rumble",
+          "score": 0.85,
+          "reasoning": "Rumble is the optimal pick for this team composition. Multiple agents support this: Pro meta (62.5% WR, trending), Stats (51% WR with +29% delta vs K'Sante, +34.8% vs Caitlyn), and critically, Synergy analysis (0.71 score with +0.21 overall delta). Aurora + Rumble achieve perfect synergy (1.0 WR, +0.45 delta), and Rumble + Sejuani synergize strongly (+0.19 delta). Unlike Nautilus/Zeri, Rumble doesn't clash with your core engine. His AoE zone control patches your lack of backline peel against Syndra/Caitlyn while amplifying Sejuani's engage reliability. The pre-existing Sejuani-Thresh weakness is not Rumble's fault; he's the best fit among all candidates to work within that constraint."
+        },
+        {
+          "champion": "Jax",
+          "score": 0.79,
+          "reasoning": "Jax is the safe, scalable alternative with strong pro meta validation (92 score: 64% WR, 28% pick rate in pro play). Synergy score of 0.71 reflects genuine strengths: exceptional Thresh synergy (+0.29 delta, 0.75 WR together\u2014this is your support's best pairing), solid Jinx interaction, and adequate Aurora fit. The Stats agent confirms viability (52% WR despite recent E nerf). Weakness: Sejuani redundancy (-0.17 delta) creates two engage-heavy frontliners competing for the same role. However, this is manageable in late-game scenarios where Thresh setup enables Jax to scale into a secondary damage threat. Pick Jax if you prioritize reliability and late-game insurance over compositional optimization."
+        },
+        {
+          "champion": "Renekton",
+          "score": 0.72,
+          "reasoning": "Renekton offers early lane dominance and proven synergy with Sejuani (+0.191 delta, 72.7% WR across 11 games\u2014strongest data point for any pair). Pro meta strongly endorses him (78 score: 50% WR, 28% pick rate, direct Sejuani history). The Patch context highlights map control against Viego roams. Weakness: Poor Thresh synergy (-0.093, 33.3% WR together) creates mid-game teamfight friction. Overall team delta is slightly negative (-0.006). Pick Renekton only if you commit to early-game snowball strategy and accept that mid-game teamfighting (your presumed strength with CC chains) will be suboptimal."
+        },
+        {
+          "champion": "Camille",
+          "score": 0.68,
+          "reasoning": "Camille provides flexibility and strong individual matchups (58% WR, trending upward per pro meta). Synergy score 0.71 reflects solid pairings with Sejuani (+0.208) and Jinx (+0.201), giving her split-push + teamfight hybrid optionality. Stats agent rates her well at 0.68. However, she underperforms with Aurora (-0.081) and significantly with Thresh (-0.149), and overall team delta is minimal (+0.045). The recommendation works only if your team commits to splitting rather than coordinated teamfighting. In a comp built around Sejuani + Thresh engage, this split-focus creates strategic tension. Pick only if you expect to leverage her 1v1 pressure and objective control rather than rely on 5v5 synergy."
+        },
+        {
+          "champion": "Maokai",
+          "score": 0.62,
+          "reasoning": "Maokai addresses a genuine team need: AP/tank frontline coverage (your comp is AD-heavy with Jinx as sole DPS threat). Patch context supports this (65 score: 42.2% WR rising, Hollow Radiance buff benefits pure tank AP builds). He provides favorable K'Sante matchup and redundant engage for playmaking flexibility. However, synergy score is weak (0.06 delta). Your team already has pre-existing synergy fractures (Sejuani-Aurora at -60.5, Sejuani-Thresh at -10.6, Sejuani-Jinx at -14.4) that Maokai won't resolve. He's a 'doesn't hurt' addition rather than a composition optimizer. Pick Maokai only if enemy draft forces you to pivot toward tankier frontlines and you're willing to sacrifice synergistic multipliers for macro safety."
+        }
+      ],
+      "top_pick_quality": true,
+      "top_3_recall": 0.5,
+      "bad_pick_avoidance": true,
+      "reasoning_quality": null,
+      "latency_ms": 113176.95903778076,
+      "tool_call_count": 28
+    },
+    {
+      "scenario_name": "comp_puzzle_engage_ap",
+      "system_name": "multi_agent",
+      "recommendations": [
+        {
+          "champion": "LeBlanc",
+          "score": 0.88,
+          "reasoning": "Stats Agent: 50% WR, dominates Caitlyn (+33%), Sejuani (+17%), Lulu (+17%). Pro Meta: 44% pro WR but high-damage burst combos excellently with Leona engages. Synergy: +22% with Rek'Sai (core roam axis), +9% with Leona (all-in setup). Jinx conflict (-8.7%) is real but manageable through early-game closure via roaming. Addresses team's AP need and shuts down enemy siege pressure. Best pick for your team identity."
+        },
+        {
+          "champion": "Azir",
+          "score": 0.82,
+          "reasoning": "Stats Agent: 54.4% WR baseline (highest mid-lane). Pro Meta: 70% WR over 10 pro picks, trending upward. Synergy: Neutral overall (+0.006) but +0.055 with Rek'Sai and +0.039 with Jax\u2014activates your core duo. Soldiers provide kiting vs Aatrox/Sejuani. Safer blind pick than LeBlanc with lower team friction, though weaker into specific enemy matchups. Pick if you prioritize scaling over early roaming."
+        },
+        {
+          "champion": "Corki",
+          "score": 0.79,
+          "reasoning": "Patch Context Agent: 59% WR (small sample, likely inflated but signal of strength), Package cooldown buff (300\u2192240s) enables roaming. Low pick rate (0.22) means enemies unprepared. Provides mixed damage (counters Lulu's shield reliance), wave clear vs Caitlyn pressure, and roaming synergy with Rek'Sai. Synergy: Neutral but less negative baggage than Orianna/Rumble. Sleeper pick that leverages patch advantage."
+        },
+        {
+          "champion": "Ahri",
+          "score": 0.64,
+          "reasoning": "Patch Context Agent: 50% WR, safe control mage with no recent nerfs. Pro Meta: Solid poke/mobility into Lulu/Sejuani. Synergy: +0.172 with Rek'Sai (strong roam pairing) and +0.09 with Jax, but -0.182 with Jinx and -0.081 with Leona. Better team fit than Orianna, but Jinx synergy friction limits ceiling. Provides AP coverage and mobility to dodge Aatrox/Caitlyn. Consider if early roaming priority outweighs late-game teamfight needs."
+        },
+        {
+          "champion": "Orianna",
+          "score": 0.61,
+          "reasoning": "Pro Meta Agent: 50% WR, 14 pro picks, utility-first control mage. Stats Agent: 51.8% WR, good vs Caitlyn (+15%) and Aatrox (+23%). MAJOR SYNERGY CONCERN: -16.1% WR with Jinx (contradicts pro recommendation claiming 'perfect pairing'). Overall team synergy -0.033. Leona pairing is weak (-0.004 Rek'Sai, +0.053 Leona only). Pick only if enemy comp changes or you need specific peel over damage amplification. Lower priority than Ahri."
+        }
+      ],
+      "top_pick_quality": false,
+      "top_3_recall": 0.0,
+      "bad_pick_avoidance": false,
+      "reasoning_quality": null,
+      "latency_ms": 100223.96111488342,
+      "tool_call_count": 31
+    },
+    {
+      "scenario_name": "three_patch_crossref",
+      "system_name": "multi_agent",
+      "recommendations": [
+        {
+          "champion": "Corki",
+          "score": 0.94,
+          "reasoning": "Dominant across all metrics: 59.09% WR (stats), 60% WR / 40% pick rate in pro (pro meta), patch 16.7 early laning buffs (patch context). Exceptional synergy (0.75) with your comp\u2014particularly Sejuani (+0.397 delta, 5-5 record = perfect coordination on engage/package timing). Strong secondary synergy with Thresh (+0.107). Fills critical gap: provides AD hypercarry scaling from mid to complement Aatrox's AD threat, solves Caitlyn matchup, and package mobility counters Gnar/Viego spacing. This is the rare pick where meta strength, patch buffs, stats, AND team synergy all align."
+        },
+        {
+          "champion": "Orianna",
+          "score": 0.87,
+          "reasoning": "Rock-solid performer: 51.85% WR with 54-game sample (stats), 50% WR / 14 pro picks (pro meta), no nerfs in 16.7 but stable meta presence (patch). Good synergy (0.65) overall. Excels with Thresh (+14.3% delta, 60% WR together)\u2014ball control enables lantern engages and shockwave amplifies hook followup. Counters 3/4 enemy picks (Gnar, Viego, Caitlyn with +14.8% avg delta). Provides AP damage diversity (Aatrox is AD) and triple-layer CC with Thresh/Sejuani for lockdown teamfights. Weak vs Lulu is manageable. Slightly negative Sejuani synergy (-6.7%) is minor\u2014both initiate but don't directly clash."
+        },
+        {
+          "champion": "Twisted Fate",
+          "score": 0.62,
+          "reasoning": "Macro-focused alternative with Sejuani synergy upside: 45.1% WR (stats), 41.6% WR with 4-pick Sejuani pairing in pro (pro meta). Gold card stun chains with Thresh roams, strong into Gnar/Caitlyn (+10.1% avg delta). **CRITICAL CAVEAT**: TF has poor -0.257 synergy with Thresh (16.7% WR in 6 games), which significantly undermines this pick despite the strong Sejuani (+0.217) relationship. Overall team synergy is near-neutral (-0.014). If roam synergies aren't fully captured in stats, this could be viable; if raw win rate is accurate, the Thresh clash is problematic. Recommend only if you plan to heavily prioritize Sejuani-TF synergy and minimize Thresh-TF interactions."
+        },
+        {
+          "champion": "Vel'Koz",
+          "score": 0.6,
+          "reasoning": "Utility AP mage alternative to Orianna if you want to avoid the Sejuani synergy weakness. Provides wave control, displacement (knock-up) that chains with Sejuani's engage, and true-damage scaling into Lulu's shields. Less mobile than other picks but offers different CC profile (knock-up \u2260 shockwave). Likely has better Sejuani synergy than Orianna since his displacement is a harder engage asset. **Caveat: Not evaluated by agents, so this is speculative. Include only if you've verified positive Sejuani/Thresh synergy in your patch data.**"
+        }
+      ],
+      "top_pick_quality": false,
+      "top_3_recall": 0.6666666666666666,
+      "bad_pick_avoidance": true,
+      "reasoning_quality": null,
+      "latency_ms": 97348.08897972107,
+      "tool_call_count": 26
+    },
+    {
+      "scenario_name": "item_meta_shift",
+      "system_name": "multi_agent",
+      "recommendations": [
+        {
+          "champion": "Sejuani",
+          "score": 0.88,
+          "reasoning": "Best team-fit despite mixed synergy data. Patch context: 61.5% WR with improved scaling (16.7 buffs). Pro meta: 66.7% win rate (6-3 record) with strong LCK trending. Synergy: excellent with Gnar (0.167 engage synergy) and Varus (0.157 CC chain), which are your win conditions. Weak Orianna (-0.067) and Thresh (-0.106) synergies are offset by her ability to cover Thresh's redundancy while enabling Gnar's shatters. Early dueling vs Aatrox is strong. This pick maximizes your top/ADC carries despite bot lane weakness."
+        },
+        {
+          "champion": "LeeSin",
+          "score": 0.82,
+          "reasoning": "Strongest individual player strength at 77.8% pro win rate (7-2 record). Synergy is neutral (0.04) but this reflects bot lane issues, not LeeSin's fault. Pro meta: trending heavily in organized play with strong Orianna synergy (0.055 delta, 11 games together). Key advantage: excellent Gnar synergy (0.094, 60% WR)\u2014enables your top lane to carry. Early-game pressure against Aatrox/Syndra threats is critical. Strategy: win games in jungle/mid/top phase before Thresh-Varus dysfunction matters in teamfights. High-skill ceiling for mechanical carries."
+        },
+        {
+          "champion": "Rek'Sai",
+          "score": 0.7,
+          "reasoning": "Patch context: 16.7 buffs directly address her needs (Q scaling 0.5\u21920.6, passive heal). Currently emerging at 48.9% WR but trajectory is positive. Synergy: strong Varus pairing (0.255 delta)\u2014enables bot lane skirmish/duel wins despite Thresh dysfunction. Weak Thresh connection (-0.193) but this is secondary if you're leveraging Rek'Sai for jungle-bot roaming coordination. Decent Orianna neutral (-0.004). Poor Gnar synergy (-0.145) is the main weakness. Pick if your team can execute early bot-focused ganks before teamfights."
+        },
+        {
+          "champion": "Kha'Zix",
+          "score": 0.73,
+          "reasoning": "NOT recommended by agents, but emerging as dark horse given your team composition. Strong early-game dueling vs Aatrox/Nautilus (similar profile to Graves' recommendation but with better execution). Isolation mechanics work around Thresh-Varus dysfunction by creating picks and skirmish wins rather than relying on 5v5 teamfight coordination. Lower pick rate means Aatrox/Syndra less likely to have prepared matchups. Synergy: neutral to positive with Gnar engage (follow-up threat). Consider as pivot if enemy team shows early aggression you need to counter immediately."
+        },
+        {
+          "champion": "Nidalee",
+          "score": 0.68,
+          "reasoning": "Pro meta adjacent pick (underrepresented but strong in skirmish/duel scenarios). High early-game pressure and mid-game relevance aligns with strategy of closing before teamfights amplify bot lane weakness. Strong mechanical outplay potential against Nautilus ganks. Synergy: decent Gnar pairing for engage follow-up. Weak with Thresh/Varus but enables Orianna to scale without needing bot synergy. Lower pedigree than LeeSin but higher ceiling than Graves/Elise if you need to outplay enemy macro rather than rely on composition alignment."
+        }
+      ],
+      "top_pick_quality": true,
+      "top_3_recall": 0.3333333333333333,
+      "bad_pick_avoidance": true,
+      "reasoning_quality": null,
+      "latency_ms": 162174.16501045227,
+      "tool_call_count": 57
+    }
+  ],
+  "baseline_summary": {
+    "system": "baseline",
+    "scenarios": 15,
+    "top_pick_accuracy": 0.3333333333333333,
+    "avg_top3_recall": 0.3444444444444444,
+    "bad_pick_avoidance": 0.6666666666666666,
+    "avg_latency_ms": 58620.41538556417,
+    "avg_tool_calls": 23.4,
+    "by_difficulty": {}
+  },
+  "multi_agent_summary": {
+    "system": "error",
+    "scenarios": 15,
+    "top_pick_accuracy": 0.26666666666666666,
+    "avg_top3_recall": 0.2611111111111111,
+    "bad_pick_avoidance": 0.8,
+    "avg_latency_ms": 84040.19831021626,
+    "avg_tool_calls": 17.4,
+    "by_difficulty": {}
+  }
+}
