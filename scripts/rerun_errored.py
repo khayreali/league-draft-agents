@@ -11,7 +11,7 @@ from draft_analyst.agents.baseline import SingleAgentBaseline
 from draft_analyst.agents.coordinator import LangGraphCoordinator
 from draft_analyst.agents.context import build_tool_executor
 from draft_analyst.config import DEFAULT_AGENT_MODEL
-from draft_analyst.evaluation.evaluator import Evaluator, score_output
+from draft_analyst.evaluation.evaluator import Evaluator
 from draft_analyst.evaluation.loader import load_scenarios
 from draft_analyst.llm_client import get_llm_client
 

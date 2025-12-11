@@ -3,10 +3,7 @@ import json
 import logging
 import time
 
-from draft_analyst.agents.tools import ToolExecutor
-from draft_analyst.domain.models import (
-    AgentOutput, DraftState, EvalResult, EvalScenario, Recommendation,
-)
+from draft_analyst.domain.models import AgentOutput, EvalResult, EvalScenario
 
 log = logging.getLogger(__name__)
 
