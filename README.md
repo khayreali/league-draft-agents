@@ -1,31 +1,31 @@
-# league-draft-analyst
+# league-draft-agents
 
 A CLI tool that recommends League of Legends draft picks using a multi-agent system. You give it a partial draft state (who's picked, who's banned, what role you need), and it returns a ranked list of recommendations backed by solo queue stats, pro play trends, patch note analysis, and team synergy data.
 
-I built this because I play League and I wanted to see if a multi-agent setup actually helps with draft decisions, or if it's just unnecessary complexity. The answer is somewhere in between — but the hard scenarios (sleeper picks from recent buffs, avoiding nerf traps) are where the multi-agent system genuinely outperforms a single-agent baseline. More on that below.
+I built this because I play League and I wanted to see if a multi-agent setup actually helps with draft decisions, or if it's just unnecessary complexity. Turns out it does help — especially on the harder scenarios where you need to cross-reference multiple sources of information — but it's not a slam dunk everywhere.
 
 ## does the multi-agent setup actually help?
 
-Here's the comparison across all 15 eval scenarios, broken out by difficulty. Real Claude Haiku calls, synthetic match data.
+Here's the comparison across all 15 eval scenarios, broken out by difficulty. Real Claude Haiku calls, 177 real challenger/GM matches from KR and NA servers.
 
 | Difficulty | System | Top-1 Accuracy | Top-3 Recall | Bad Pick Avoidance | Avg Latency | Avg Tool Calls |
 |---|---|---|---|---|---|---|
-| Easy (5) | Baseline | 20% | 0.20 | 80% | 47s | 21.8 |
-| Easy (5) | Multi-Agent | 20% | 0.40 | 60% | 114s | 16.6 |
-| Medium (5) | Baseline | 40% | 0.40 | 80% | 57s | 22.0 |
-| Medium (5) | Multi-Agent | 40% | 0.48 | 40% | 126s | 25.0 |
-| Hard (5) | Baseline | 40% | 0.43 | 40% | 72s | 26.4 |
-| Hard (5) | Multi-Agent | 60% | 0.50 | 80% | 114s | 35.0 |
+| Easy (5) | Baseline | 20% | 0.20 | 100% | 36s | 25.2 |
+| Easy (5) | Multi-Agent | 60% | 0.30 | 80% | 109s | 37.6 |
+| Medium (5) | Baseline | 0% | 0.00 | 100% | 47s | 24.8 |
+| Medium (5) | Multi-Agent | 20% | 0.15 | 100% | 88s | 25.4 |
+| Hard (5) | Baseline | 0% | 0.07 | 40% | 46s | 25.8 |
+| Hard (5) | Multi-Agent | 20% | 0.33 | 80% | 100s | 26.4 |
 
-The multi-agent advantage shows up on hard scenarios, which is where you'd hope it would. Top-1 accuracy goes from 40% to 60%, and bad pick avoidance jumps from 40% to 80%. That bad-pick number matters most in practice — recommending a recently-nerfed champion is actively harmful, not just suboptimal.
+Overall: multi-agent gets 33% top-1 accuracy vs 7% for baseline, and 26% top-3 recall vs 9%. Bad pick avoidance is close (87% vs 80%) but the multi-agent system wins on hard scenarios specifically — 80% vs 40%.
 
-On easy and medium scenarios the picture is more mixed. Multi-agent gets better recall across the board (0.40 vs 0.20 on easy, 0.48 vs 0.40 on medium) but worse bad-pick avoidance. The multi-agent system is more adventurous — more specialists means more candidate picks, which helps recall but also means occasionally recommending something dumb. For easy drafts, the baseline's conservatism is actually the right strategy.
+The baseline just didn't find the right champions most of the time. It would latch onto whatever had the highest raw win rate and recommend that regardless of context. Multi-agent does better because the specialists each surface different candidates, and the head coach can weigh them against each other.
 
-The standout scenario was `sleeper_buff_pickup` (hard) where multi-agent hit 1.00 recall — found all three expected picks (Orianna, Corki, Twisted Fate) vs baseline's 0.67. That's the scenario that justifies the whole multi-agent setup: the patch context agent flags the Corki buff, the pro meta agent notices TF trending, and the head coach synthesizes them into a coherent recommendation.
+The hard scenario `sleeper_buff_pickup` was the clearest win — multi-agent got 0.67 recall (found 2 of 3 expected picks) where the baseline got 0.00. That's the scenario where Corki got buffed in 16.7 but the stats haven't caught up yet, so you need the patch context agent to flag it. Similarly `three_patch_crossref` went from 0.00 baseline recall to 0.33 multi-agent.
 
-The first run hit Anthropic's rate limits and 7 multi-agent scenarios errored out (all 5 easy + 2 medium). I added a 20-second sleep between scenarios, bumped the retry count to 3, and reran the failures. The merged results are what the table shows.
+Bad pick avoidance on easy scenarios is actually worse for multi-agent (80% vs 100%). More agents means more candidates get surfaced, and some of them are bad. For straightforward drafts the baseline's conservatism is the right strategy.
 
-Cost tradeoff: multi-agent is about 1.6x slower and uses ~35 tool calls on hard scenarios vs ~26 for baseline. The parallel specialist execution keeps it from being 3x.
+Cost: multi-agent is about 2.3x slower (99s vs 43s average) and uses ~30 tool calls vs ~25. On easy scenarios it's 38 tool calls because of all the synergy critic evaluations, which is kind of wasteful. The smart thing to do would be to route easy drafts straight to the baseline.
 
 ## what it does
 
@@ -38,15 +38,15 @@ The system has four specialist agents that each look at the draft from a differe
 
 These run in parallel via a LangGraph StateGraph, and a Head Coach agent synthesizes their outputs into a final recommendation. The Head Coach cites which agent contributed which insight, so you can see why it's recommending what it is.
 
-There's also a single-agent baseline that gets all the same tools but runs as one ReAct loop. The eval harness compares the two, which is the whole point of the project — proving the orchestration is worth it.
+There's also a single-agent baseline that gets all the same tools but runs as one ReAct loop. The eval harness compares the two.
 
 ## setup
 
 You need Python 3.11+, [uv](https://docs.astral.sh/uv/), a Riot Games API key, and an Anthropic API key.
 
 ```bash
-git clone https://github.com/yourusername/league-draft-analyst.git
-cd league-draft-analyst
+git clone https://github.com/khayreali/league-draft-agents.git
+cd league-draft-agents
 uv sync
 ```
 
@@ -64,11 +64,11 @@ Getting a Riot API key: go to [developer.riotgames.com](https://developer.riotga
 Pull match data and patch notes:
 
 ```bash
-draft ingest --since 2026-03-01 --platforms kr,na1 --max-players 10
+draft ingest --since 2025-03-01 --platforms kr,na1 --max-players 10
 draft index-patches
 ```
 
-The ingestion pipeline fetches challenger/GM matches from each region, caches everything in SQLite, and the patch indexer chunks the notes into ChromaDB for retrieval. If you don't have a Riot API key, the system generates synthetic match data automatically so you can still test the agents.
+The ingestion pipeline fetches challenger/GM matches from each region, caches everything in SQLite, and the patch indexer chunks the notes into ChromaDB for retrieval.
 
 Get a recommendation:
 
@@ -123,15 +123,15 @@ Four layers, dependencies flow downward:
 
 ## why these choices
 
-**LangGraph** for the multi-agent orchestration because it's the standard for this pattern and it handles the fan-out/fan-in cleanly. I'm using `StateGraph` directly with `Annotated[list, operator.add]` for merging parallel agent outputs. No wrappers.
+**LangGraph** for the multi-agent orchestration because it handles the fan-out/fan-in cleanly. I'm using `StateGraph` directly with `Annotated[list, operator.add]` for merging parallel agent outputs.
 
 **Baseline first.** I built the single-agent system before the multi-agent one. This forced me to be honest about scoping — if the baseline already handles a scenario well, adding agents for it is just complexity. The hard eval scenarios are specifically designed around cases where a single agent misses things.
 
-**Four agents, not more.** I went back and forth on whether to add a "team composition archetype" agent but decided against it. The synergy critic already covers comp fitness, and a fifth agent would be padding. The head coach synthesis step is where the magic happens anyway.
+**Four agents, not more.** I went back and forth on whether to add a "team composition archetype" agent but decided against it. The synergy critic already covers comp fitness, and a fifth agent would be padding.
 
 **Wilson score intervals** instead of raw win rates for the stats rankings. With small sample sizes, raw percentages are misleading — a champion with 5 wins in 5 games isn't necessarily better than one with 500 wins in 1000. The Wilson lower bound handles this correctly and it's like 5 lines of code.
 
-**SQLite for caching, ChromaDB for RAG.** I don't need Postgres for ~200 match records. SQLite handles the match data and API response caching, ChromaDB handles the patch note embeddings. Anything more would be overengineering.
+**SQLite for caching, ChromaDB for RAG.** I don't need Postgres for match records. SQLite handles the match data and API response caching, ChromaDB handles the patch note embeddings. Anything more would be overengineering.
 
 ## eval scenarios
 
@@ -141,25 +141,25 @@ Four layers, dependencies flow downward:
 - **Medium** (5): requires balancing two perspectives. Best counter-pick doesn't synergize with your team. Pro meta disagrees with solo queue stats.
 - **Hard** (5): the ones that justify the multi-agent setup. Corki got buffed in 16.7 but stats haven't caught up — the patch agent and pro meta agent need to agree despite the stats agent missing it. Ambessa was nerfed but her stats still look good from pre-nerf games. A team comp puzzle that requires AP damage AND engage AND surviving the enemy comp.
 
-The hard scenarios are the whole point. If the multi-agent system doesn't beat the baseline there, the project is incomplete.
-
 ## what surprised me
 
-The multi-agent system recommended Galio and Ryze for the first easy scenario — champions that aren't even in the synthetic match data. The LLM hallucinated picks from its training data instead of sticking to tool outputs. The baseline did this too (Braum top lane...) but less often. More agents = more chances for at least one to go off-script. Probably need to add the champion pool to the system prompt so it knows what's in the data.
+The baseline was worse than I expected. 7% top-1 accuracy is really bad — it only got a single scenario right out of 15 (the `obvious_tank_jungle` one where Jarvan IV is just clearly the best pick statistically). It kept recommending Xerath and Lissandra based on high win rates in the match data even when they didn't fit the scenario at all.
 
-The first eval run was a disaster. 7 of 15 multi-agent scenarios returned empty because three parallel specialists were hammering the Anthropic API and burning through rate limits instantly. Had to add a 20s sleep between scenarios and bump retries to 3. The kind of thing that's obvious in retrospect.
+Multi-agent had the opposite problem on easy scenarios. It recommended too many candidates because each specialist surfaced different champions. The head coach would then include some questionable picks in the final list. On `obvious_tank_jungle` the multi-agent system recommended Lee Sin (explicitly a bad pick in that scenario — team needs a tank, not more damage). More agents = more chances for someone to suggest something dumb.
 
-Bad-pick avoidance on easy/medium scenarios is *worse* for multi-agent (60% and 40%) than baseline (80% both). The multi-agent system is more exploratory — more specialists means more candidate champions get surfaced, including questionable ones. For straightforward drafts the baseline's conservatism actually wins. I didn't expect that tradeoff.
+The `sleeper_buff_pickup` scenario was the most satisfying. The baseline had 0.00 recall — it completely missed the Corki buff. The multi-agent system got 0.67 because the patch context agent flagged the base AD and package CD buffs and the head coach weighted that information correctly.
+
+Rate limiting was a pain. The first attempt with Sonnet was basically unusable — constant 429s on a new API key. Switched to Haiku and it worked fine. The Anthropic SDK's built-in retry with backoff handled the occasional 429 gracefully.
 
 ## limitations and what's next
 
-The eval was run on synthetic match data — 200 generated matches with seeded champion strength and synergy biases (see `context.py`). There's no Riot API key configured for ingestion, so the analytics layer is working with fake numbers. This means the absolute performance of both systems is worse than it would be with real data, and the synthetic biases could in principle favor one system over the other. Re-running on real ingested match data is the obvious first step.
+The eval scenarios use real match data (177 challenger/GM games from KR and NA) but the patch notes are curated YAML files I wrote, not scraped from an actual source. The wiki scraper in the code doesn't work because the League wiki 403s automated requests and the official site is JS-rendered. So the patch context agent is working with patch notes I wrote by hand. They're accurate but it means the system can't auto-update when new patches drop.
 
-On cost: multi-agent averaged ~35 tool calls per hard scenario vs ~26 for baseline, and was about 1.7x slower. Each specialist runs its own ReAct loop (with separate LLM calls), plus the synergy critic evaluates up to 8 candidates, plus the head coach synthesis. With Sonnet instead of Haiku, you're looking at a meaningful cost difference per recommendation. The smart move would be routing — classify draft complexity upfront (how many enemy picks are known, whether the patch had major changes) and only run the full multi-agent flow when it matters. Easy drafts go straight to baseline.
+On cost: multi-agent averaged ~30 tool calls per scenario vs ~25 for baseline, and was about 2.3x slower. Each specialist runs its own ReAct loop (with separate LLM calls), plus the synergy critic evaluates up to 8 candidates, plus the head coach synthesis. The smart move would be routing — classify draft complexity upfront and only run the full multi-agent flow when it matters.
 
-One thing I'd rethink entirely: the synergy calculator. Right now it's pure co-occurrence win rate — "Sejuani and Aurora win 65% when on the same team." It can't tell you *why*. A better version would track specific interaction types — CC chains, peel-hypercarry combos, engage follow-up. That kind of structure would make the synergy critic's evaluations much sharper.
+One thing I'd rethink is the synergy calculator. Right now it's pure co-occurrence win rate — "Sejuani and Aurora win 65% when on the same team." It can't tell you *why*. A better version would track specific interaction types — CC chains, peel-hypercarry combos, engage follow-up.
 
-I'd also add LLM-as-judge scoring for the eval. Right now it checks champion names but not reasoning quality. The head coach produces great cited reasoning (e.g. "patch: 59% WR +3 AD buff, pro: 40% PR 60% WR") but the eval doesn't score that at all. A judge prompt checking whether reasoning cites concrete tool data would catch cases where the system gets the right answer for the wrong reasons.
+I'd also add LLM-as-judge scoring for the eval. Right now it checks champion names but not reasoning quality. The head coach produces cited reasoning but the eval doesn't score that at all.
 
 ## running tests
 

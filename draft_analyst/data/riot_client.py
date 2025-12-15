@@ -92,21 +92,16 @@ class RiotClient:
         raise RuntimeError(f"failed after 3 retries: {url}")
 
 
-    async def get_challenger_players(self, platform: str = "na1", queue: str = "RANKED_SOLO_5x5") -> list[str]:
-        """Get summoner IDs of challenger players."""
+    async def get_challenger_puuids(self, platform: str = "na1", queue: str = "RANKED_SOLO_5x5") -> list[str]:
+        """Get PUUIDs of challenger players."""
         url = f"https://{platform}.api.riotgames.com/lol/league/v4/challengerleagues/by-queue/{queue}"
         data = await self._request(url)
-        return [entry["summonerId"] for entry in data.get("entries", [])]
+        return [entry["puuid"] for entry in data.get("entries", [])]
 
-    async def get_grandmaster_players(self, platform: str = "na1", queue: str = "RANKED_SOLO_5x5") -> list[str]:
+    async def get_grandmaster_puuids(self, platform: str = "na1", queue: str = "RANKED_SOLO_5x5") -> list[str]:
         url = f"https://{platform}.api.riotgames.com/lol/league/v4/grandmasterleagues/by-queue/{queue}"
         data = await self._request(url)
-        return [entry["summonerId"] for entry in data.get("entries", [])]
-
-    async def get_puuid_by_summoner_id(self, summoner_id: str, platform: str = "na1") -> str:
-        url = f"https://{platform}.api.riotgames.com/lol/summoner/v4/summoners/{summoner_id}"
-        data = await self._request(url)
-        return data["puuid"]
+        return [entry["puuid"] for entry in data.get("entries", [])]
 
 
     async def get_match_ids(
@@ -172,15 +167,14 @@ class RiotClient:
     ) -> list[MatchData]:
         """Pull recent ranked matches from challenger/GM players."""
         log.info(f"fetching high-elo players from {platform}...")
-        summoner_ids = await self.get_challenger_players(platform)
-        summoner_ids = summoner_ids[:max_players]
+        puuids = await self.get_challenger_puuids(platform)
+        puuids = puuids[:max_players]
 
         all_matches = []
         seen_ids = set()
 
-        for sid in summoner_ids:
+        for puuid in puuids:
             try:
-                puuid = await self.get_puuid_by_summoner_id(sid, platform)
                 match_ids = await self.get_match_ids(
                     puuid, platform,
                     count=matches_per_player,
@@ -195,7 +189,7 @@ class RiotClient:
                     if parsed:
                         all_matches.append(parsed)
             except Exception as e:
-                log.warning(f"skipping summoner {sid}: {e}")
+                log.warning(f"skipping player {puuid[:8]}: {e}")
                 continue
 
         log.info(f"fetched {len(all_matches)} matches from {platform}")
